@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/Heart.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/LifeBar.gd" type="Script" id=2]
+
+[node name="LifeBar" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Heart1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 0 )
+
+[node name="Heart2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 0 )
+
+[node name="Heart3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 104, 0 )
