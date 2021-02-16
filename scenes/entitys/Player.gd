@@ -1,17 +1,15 @@
-extends KinematicBody2D
+extends "res://scenes/entitys/DefaultEntity.gd"
 
 export (int) var acceleration = 200
 export (int) var max_speed = 400
 export (float) var inertia = 0.9
-
-var Projectile = preload("res://scenes/Projectile.tscn")
 
 var velocity : Vector2 = Vector2(0, 0)
 var is_shooting : bool = false
 
 
 func _ready() -> void:
-	pass
+	Projectile = preload("res://scenes/entitys/Projectile.tscn")
 
 
 func _physics_process(delta: float) -> void:

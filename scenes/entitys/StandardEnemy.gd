@@ -1,7 +1,4 @@
-extends KinematicBody2D
-
-var health = 3
-var speed = 10
+extends "res://scenes/entitys/DefaultEntity.gd"
 
 func _ready():
 	pass # Replace with function body.
@@ -19,6 +16,3 @@ func hit(damage):
 
 func destroy():
 	pass
-
-func _on_BulletTimer_timeout():
-	shoot()
