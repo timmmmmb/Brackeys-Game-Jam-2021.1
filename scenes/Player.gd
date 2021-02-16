@@ -1,11 +1,17 @@
 extends KinematicBody2D
 
-export (int) var speed = 20
+export (int) var acceleration = 200
+export (int) var max_speed = 400
+export (float) var inertia = 0.9
+
+var Projectile = preload("res://scenes/Projectile.tscn")
+
 var velocity : Vector2 = Vector2(0, 0)
+var is_shooting : bool = false
 
 
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -14,15 +20,46 @@ func _physics_process(delta: float) -> void:
 	var up = Input.is_action_pressed("up")
 	var down = Input.is_action_pressed("down")
 
+	is_shooting = Input.is_action_pressed("shoot")
+
+	var direction = Vector2(0, 0)
+
 	if left:
-		velocity.x -= speed
+		direction.x -= 1
 	if right:
-		velocity.x += speed
+		direction.x += 1
 	if up:
-		velocity.y -= speed
+		direction.y -= 1
 	if down:
-		velocity.y += speed
+		direction.y += 1
+	
+	velocity += direction.normalized() * acceleration
+	
+	if not left and not right:
+		velocity.x *= inertia
+	
+	if not up and not down:
+		velocity.y *= inertia
 		
+	if left or right or up or down:
+		$AnimatedSprite.animation = "flying"
+	else:
+		$AnimatedSprite.animation = "default"
+	
+	velocity.x = clamp(velocity.x, -max_speed, max_speed)
+	velocity.y = clamp(velocity.y, -max_speed, max_speed)
+	
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 
+func shoot() -> void:
+	var projectile = Projectile.instance()
+
+	projectile.position = self.position + $BulletSpawner.position
+	
+	get_parent().add_child(projectile)
+
+
+func _on_WeaponTimer_timeout() -> void:
+	if is_shooting:
+		call_deferred("shoot")
