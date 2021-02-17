@@ -3,7 +3,7 @@ extends KinematicBody2D
 export (int) var speed = 2
 
 func _ready() -> void:
-	pass
+	$AnimatedSprite.play()
 
 
 func _physics_process(delta: float) -> void:

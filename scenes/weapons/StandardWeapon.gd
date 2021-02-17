@@ -1,11 +1,10 @@
 extends Node2D
 
-var Projectile
+export(PackedScene) var Projectile = preload("res://scenes/projectiles/Projectile.tscn")
 export(float) var delay = 1
 export var damage = 1
 
 func _ready() -> void:
-	Projectile = preload("res://scenes/entitys/Projectile.tscn")
 	$Delay.wait_time = delay
 
 	

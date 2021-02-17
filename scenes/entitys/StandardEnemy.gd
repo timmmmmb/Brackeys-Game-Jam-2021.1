@@ -15,4 +15,4 @@ func hit(damage):
 		destroy()
 
 func destroy():
-	pass
+	queue_free()
