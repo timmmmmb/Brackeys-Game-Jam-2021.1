@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/images/friendlies/PlayerCharacter - 48x48.png" type="Texture" id=1]
 [ext_resource path="res://scenes/entitys/Player.gd" type="Script" id=2]
-
+[ext_resource path="res://scenes/weapons/StandardWeapon.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.0
@@ -53,10 +53,9 @@ position = Vector2( 0, -21 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "flying"
-frame = 2
+frame = 1
 playing = true
 
-[node name="WeaponTimer" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
-[connection signal="timeout" from="WeaponTimer" to="." method="_on_WeaponTimer_timeout"]
+[node name="StandardWeapon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -17.3362 )
+delay = 0.2

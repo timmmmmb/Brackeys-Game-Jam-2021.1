@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 export var health = 3
 export var speed = 10
-var Projectile
+var current_weapon
 
 func shoot():
-	pass
+	current_weapon.shoot()
 
 func hit(damage):
 	health -= damage
