@@ -45,4 +45,6 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 	
 	if is_shooting:
-		$StandardWeapon.shoot()
+#		$StandardWeapon.shoot()
+#		$ShotgunWeapon.shoot()
+		$MGWeapon.shoot()
