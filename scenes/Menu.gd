@@ -6,7 +6,9 @@ func _ready():
 
 func _process(_delta):
 	var accept = Input.is_action_just_pressed("ui_accept")
-	if accept:
+	if accept && $AnimationPlayer.current_animation != "Start" && !$Enter.playing:
 		$Enter.play()
 		yield($Enter, "finished")
-		get_tree().change_scene("res://scenes/levels/Level.tscn")
+		$AnimationPlayer.play("Start")
+		yield($AnimationPlayer, "animation_finished")
+		get_tree().change_scene("res://scenes/Cutscenes.tscn")

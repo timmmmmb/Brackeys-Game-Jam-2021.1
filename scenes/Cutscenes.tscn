@@ -1,0 +1,278 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/entitys/Star.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/images/friendlies/PlayerCharacter - 48x48.png" type="Texture" id=2]
+[ext_resource path="res://assets/font/font22pt.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/sounds/music/Loneliness & Sudden Hope - Intro Part.wav" type="AudioStream" id=4]
+[ext_resource path="res://scenes/Cutscenes.gd" type="Script" id=5]
+[ext_resource path="res://assets/images/backgrounds/planet-horizon.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=5]
+resource_name = "Intro"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4, 6, 8, 12, 15, 18.5, 22, 24.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "", "We enter the year 2199.
+", "We enter the year 2199.
+Soon the new century begins.", "We enter the year 2199.
+Soon the new century begins.
+However, without us humans. ", "After the occupation of Mars, we tried our best with Titan, one of Jupiter's many moons. ", "But what we didn't know, it was inhabited.", "After landing they wiped out the crew and started their invasion. ", "It only took them a few months, before the people on Mars got annihilated.", "Our last hope is the lonely pilot. The only survivor of the attack on Mars. ", "" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Spaceship:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 24.9, 29.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 328 ), Vector2( 0, 328 ), Vector2( 0, 65.4752 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -512.0
+margin_top = -304.0
+margin_right = 512.0
+margin_bottom = 304.0
+color = Color( 0.00784314, 0.0156863, 0.0352941, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="planet-horizon" type="Sprite" parent="."]
+position = Vector2( 0, 280 )
+scale = Vector2( 2.13333, 2.13333 )
+texture = ExtResource( 6 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Stars" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Star" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -384, -192 )
+frame = 0
+
+[node name="Star2" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -219.347, -209.363 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star3" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -92.4145, -100.393 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star4" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -285.807, -71.6536 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star5" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -113.969, -168.649 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star6" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 80.6208, -101.59 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star7" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 129.119, -160.866 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star8" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 15.3584, -186.013 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star9" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -9.78864, 6.78119 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star10" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -9.78864, 6.78119 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star11" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -309.757, 169.039 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star12" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -189.41, 125.93 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star13" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -342.687, 78.6298 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star14" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 115.348, 110.363 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star15" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 229.707, 24.1446 )
+rotation = 0.523598
+frame = 0
+
+[node name="Star16" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 366.17, -175.302 )
+rotation = 0.523598
+animation = "star2"
+frame = 3
+
+[node name="Star17" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 229.999, -46.6958 )
+rotation = 0.523598
+animation = "star2"
+frame = 3
+
+[node name="Star18" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -49.3677, -50.4783 )
+animation = "star2"
+frame = 3
+
+[node name="Star19" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -200.129, -147.203 )
+animation = "star2"
+frame = 3
+
+[node name="Star20" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 50.5991, -129.911 )
+animation = "star2"
+frame = 3
+
+[node name="Star21" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -165.545, 82.9909 )
+animation = "star2"
+frame = 3
+
+[node name="Star22" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 446.143, 89.4752 )
+animation = "star2"
+frame = 3
+
+[node name="Star23" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 45.1954, 85.1523 )
+animation = "star2"
+frame = 3
+
+[node name="Star24" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 88.9647, 32.7373 )
+animation = "star3"
+frame = 3
+
+[node name="Star25" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 406.157, -72.0928 )
+animation = "star3"
+frame = 3
+
+[node name="Star26" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 359.145, 100.282 )
+animation = "star3"
+frame = 3
+
+[node name="Star27" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 359.145, 100.282 )
+animation = "star3"
+frame = 3
+
+[node name="Star28" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 282.541, 265.098 )
+animation = "star3"
+frame = 3
+
+[node name="Star29" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -73.3677, 220.219 )
+animation = "star3"
+frame = 3
+
+[node name="Star30" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( 59.7229, 216.35 )
+animation = "star3"
+frame = 3
+
+[node name="Star31" parent="Stars" instance=ExtResource( 1 )]
+position = Vector2( -437.046, 228.73 )
+animation = "star3"
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Intro"
+anims/Intro = SubResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -256.0
+margin_top = -123.203
+margin_right = 258.0
+margin_bottom = 132.797
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spaceship" type="Node2D" parent="."]
+position = Vector2( 0, 328 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Animation" type="AnimatedSprite" parent="Spaceship"]
+frames = SubResource( 4 )
+playing = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+autoplay = true
+attenuation = 0.176777
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
