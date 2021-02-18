@@ -5,7 +5,6 @@
 
 [node name="BeamWeapon" type="Node2D"]
 script = ExtResource( 2 )
-Projectile = null
 delay = 0.1
 
 [node name="Delay" type="Timer" parent="."]

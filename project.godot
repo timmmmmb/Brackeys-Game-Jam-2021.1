@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Brackeys-Game-Jam-2021.1"
-run/main_scene="res://scenes/levels/Level.tscn"
+run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://assets/images/icon - spaceship.png"
 
 [display]
