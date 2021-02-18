@@ -40,6 +40,7 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 6
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -51,6 +52,7 @@ position = Vector2( 0, -21 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "flying"
+frame = 2
 playing = true
 
 [node name="ShotgunWeapon" parent="." instance=ExtResource( 4 )]

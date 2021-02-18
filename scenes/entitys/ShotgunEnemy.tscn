@@ -40,7 +40,7 @@ animations = [ {
 
 [node name="ShotgunEnemy" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 5
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true

@@ -20,7 +20,7 @@ func shoot() -> void:
 
 
 func _on_BulletDelay_timeout() -> void:
-	if current_bullet >= bullet_amount:
+	if current_bullet >= bullet_amount-1:
 		return
 	spawn_bullet()
 	$BulletDelay.start(0)

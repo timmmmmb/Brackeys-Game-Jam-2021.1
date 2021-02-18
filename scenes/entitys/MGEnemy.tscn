@@ -40,7 +40,7 @@ animations = [ {
 
 [node name="MGEnemy" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 5
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
@@ -61,4 +61,5 @@ one_shot = true
 rotation = 3.14159
 Projectile = ExtResource( 4 )
 bullet_amount = 3
+bullet_delay = 0.2
 [connection signal="timeout" from="AttackDelay" to="." method="_on_AttackDelay_timeout"]

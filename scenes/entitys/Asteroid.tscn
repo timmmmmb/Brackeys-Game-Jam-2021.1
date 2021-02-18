@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/celestialbodies/Asteroid - 48x48.png" type="Texture" id=1]
+[ext_resource path="res://scenes/entitys/Asteroid.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 0.0
+
+[node name="Asteroid" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 2 )
+rotation_speed = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 4
