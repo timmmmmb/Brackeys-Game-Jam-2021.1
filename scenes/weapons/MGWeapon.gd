@@ -5,7 +5,6 @@ export(float) var bullet_delay = 0.05
 var current_bullet = 0
 
 func _ready() -> void:
-	Projectile = preload("res://scenes/entitys/Projectile.tscn")
 	$Delay.wait_time = delay
 	$BulletDelay.wait_time = bullet_delay
 	

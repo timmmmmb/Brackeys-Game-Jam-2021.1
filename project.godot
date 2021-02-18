@@ -8,16 +8,27 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "DefaultEntity",
+"language": "GDScript",
+"path": "res://scenes/entitys/DefaultEntity.gd"
+}, {
+"base": "Node2D",
+"class": "StandardWeapon",
+"language": "GDScript",
+"path": "res://scenes/weapons/StandardWeapon.gd"
+} ]
 _global_script_class_icons={
-
+"DefaultEntity": "",
+"StandardWeapon": ""
 }
 
 [application]
 
 config/name="Brackeys-Game-Jam-2021.1"
 run/main_scene="res://scenes/levels/Level.tscn"
-config/icon="res://assets/images/icon.png"
+config/icon="res://assets/images/icon - spaceship.png"
 
 [display]
 

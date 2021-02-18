@@ -1,8 +1,10 @@
 extends KinematicBody2D
+class_name DefaultEntity
 
 export var health = 3
 export var speed = 10
 var current_weapon
+var velocity : Vector2 = Vector2(0, 0)
 
 func shoot():
 	current_weapon.shoot()

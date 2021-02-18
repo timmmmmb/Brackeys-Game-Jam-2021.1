@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/spaceship.png-23807e225bec556d8bf5f5f29490ec46.stex"
+path="res://.import/enemies-02 - 48x48.png-9485f069444d5e291e40314086d6043c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/spaceship.png"
-dest_files=[ "res://.import/spaceship.png-23807e225bec556d8bf5f5f29490ec46.stex" ]
+source_file="res://assets/images/enemies/enemies-02 - 48x48.png"
+dest_files=[ "res://.import/enemies-02 - 48x48.png-9485f069444d5e291e40314086d6043c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

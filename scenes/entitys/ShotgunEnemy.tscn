@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/images/enemies/enemies-01 - 48x48.png" type="Texture" id=1]
-[ext_resource path="res://scenes/entitys/StandardEnemy.gd" type="Script" id=2]
-[ext_resource path="res://scenes/weapons/StandardWeapon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/weapons/ShotgunWeapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/entitys/StandardEnemy.gd" type="Script" id=3]
 [ext_resource path="res://scenes/projectiles/EnemyProjectile.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -11,19 +11,19 @@ height = 16.0
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 48, 48 )
+region = Rect2( 0, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
-region = Rect2( 48, 0, 48, 48 )
+region = Rect2( 48, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 48, 48 )
+region = Rect2( 96, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
-region = Rect2( 144, 0, 48, 48 )
+region = Rect2( 144, 48, 48, 48 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -38,14 +38,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="StandardEnemy" type="KinematicBody2D"]
+[node name="ShotgunEnemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
-weapon = NodePath("StandardWeapon")
+weapon = NodePath("ShotgunWeapon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -54,10 +54,12 @@ shape = SubResource( 1 )
 frames = SubResource( 6 )
 animation = "flying"
 
-[node name="StandardWeapon" parent="." instance=ExtResource( 3 )]
-rotation = 3.14159
-Projectile = ExtResource( 4 )
-
 [node name="AttackDelay" type="Timer" parent="."]
 one_shot = true
+
+[node name="ShotgunWeapon" parent="." instance=ExtResource( 2 )]
+rotation = 3.14159
+Projectile = ExtResource( 4 )
+bullet_amount = 4
+spread = 60
 [connection signal="timeout" from="AttackDelay" to="." method="_on_AttackDelay_timeout"]

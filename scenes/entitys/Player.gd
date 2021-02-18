@@ -4,8 +4,6 @@ export (int) var acceleration = 200
 export (int) var max_speed = 400
 export (float) var inertia = 0.9
 
-var velocity : Vector2 = Vector2(0, 0)
-
 
 func _physics_process(delta: float) -> void:
 	var left = Input.is_action_pressed("left")

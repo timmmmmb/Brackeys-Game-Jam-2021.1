@@ -4,7 +4,6 @@ export var bullet_amount = 5
 export var spread = 30
 
 func _ready() -> void:
-	Projectile = preload("res://scenes/projectiles/Projectile.tscn")
 	$Delay.wait_time = delay
 
 

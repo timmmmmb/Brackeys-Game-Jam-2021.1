@@ -1,4 +1,5 @@
 extends Node2D
+class_name StandardWeapon
 
 export(PackedScene) var Projectile = preload("res://scenes/projectiles/Projectile.tscn")
 export(float) var delay = 1
@@ -19,5 +20,5 @@ func spawn_bullet() -> void:
 	var projectile = Projectile.instance()
 
 	projectile.position = self.position + get_parent().position
-	
+	projectile.rotation = self.rotation
 	get_tree().root.get_child(0).add_child(projectile)

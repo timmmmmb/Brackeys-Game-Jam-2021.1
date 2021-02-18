@@ -30,7 +30,7 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[node name="EnemyProjectile" type="KinematicBody2D"]
+[node name="EnemyProjectile" type="Area2D"]
 collision_layer = 4
 script = ExtResource( 2 )
 
@@ -42,4 +42,5 @@ scale = Vector2( 1.7, 1.7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
+[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
