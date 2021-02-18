@@ -7,7 +7,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	position += Vector2.UP.rotated(rotation) * speed
+	if $AnimatedSprite.animation != "hit":
+		position += Vector2.UP.rotated(rotation) * speed
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
@@ -17,4 +18,11 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 func _on_Projectile_body_entered(body: Node) -> void:
 	if body is DefaultEntity:
 		body.hit(1)
+		$AnimatedSprite.animation = "hit"
+		$AnimatedSprite.play()
+		$CollisionShape2D.disabled = true
+
+
+func _on_AnimatedSprite_animation_finished() -> void:
+	if $AnimatedSprite.animation == "hit":
 		queue_free()

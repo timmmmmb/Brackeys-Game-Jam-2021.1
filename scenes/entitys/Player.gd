@@ -1,7 +1,7 @@
 extends "res://scenes/entitys/DefaultEntity.gd"
 
-export (int) var acceleration = 200
-export (int) var max_speed = 400
+export (int) var acceleration = 50
+export (int) var max_speed = 300
 export (float) var inertia = 0.9
 
 

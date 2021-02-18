@@ -52,7 +52,6 @@ position = Vector2( 0, -21 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "flying"
-frame = 2
 playing = true
 
 [node name="ShotgunWeapon" parent="." instance=ExtResource( 4 )]
