@@ -88,7 +88,6 @@ curve = SubResource( 3 )
 [node name="BeamEnemy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 168, -64 )
 patrol_path = NodePath("../Path2D3")
-attack_delay = 5.0
 
 [node name="MGEnemy" parent="." instance=ExtResource( 7 )]
 position = Vector2( -240, -64 )

@@ -7,7 +7,7 @@ func _ready() -> void:
 	self.playing = true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_available:
 		self.animation = "full"
 	else:

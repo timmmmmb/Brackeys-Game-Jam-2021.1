@@ -5,7 +5,7 @@ export (int) var max_speed = 300
 export (float) var inertia = 0.9
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var left = Input.is_action_pressed("left")
 	var right = Input.is_action_pressed("right")
 	var up = Input.is_action_pressed("up")

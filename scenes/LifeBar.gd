@@ -9,7 +9,7 @@ func _ready() -> void:
 	$Heart3.frame = 2
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Heart1.is_available = hearts >= 1
 	$Heart2.is_available = hearts >= 2
 	$Heart3.is_available = hearts >= 3

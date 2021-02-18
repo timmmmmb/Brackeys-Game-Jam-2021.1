@@ -6,7 +6,7 @@ func _ready() -> void:
 	$AnimatedSprite.play()
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if $AnimatedSprite.animation != "hit":
 		position += Vector2.UP.rotated(rotation) * speed
 
@@ -19,7 +19,7 @@ func _on_Projectile_body_entered(body: Node) -> void:
 	if body is DefaultEntity:
 		body.hit(1)
 		$AnimatedSprite.animation = "hit"
-		$CollisionShape2D.disabled = true
+		$CollisionShape2D.set_deferred("disabled", true)
 		$AnimatedSprite.play()
 		yield($AnimatedSprite, "animation_finished" )
 		queue_free()

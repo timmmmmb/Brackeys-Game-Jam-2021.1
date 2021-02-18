@@ -9,5 +9,5 @@ func _ready():
 func _physics_process(delta):
 	rotation_degrees = rotation_speed*delta + rotation_degrees
 
-func hit(damage):
+func hit(_damage):
 	pass

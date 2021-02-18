@@ -20,7 +20,7 @@ func wake_up():
 	$AttackDelay.start(0)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if patrol_path && state != STATE.IDLE:
 		var target = patrol_points[patrol_index]
 		if position.distance_to(target) < 1:
