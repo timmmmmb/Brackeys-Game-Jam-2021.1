@@ -1,15 +1,16 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scenes/entitys/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/images/backgrounds/planet-horizon.png" type="Texture" id=2]
 [ext_resource path="res://scenes/LifeBar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/entitys/Powerup.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/entitys/StandardEnemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/entitys/ShotgunEnemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/entitys/MGEnemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/entitys/Asteroid.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/entitys/BeamEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/entities/Powerup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entities/StandardEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entities/ShotgunEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entities/MGEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/entities/Asteroid.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/BeamEnemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sounds/music/Loneliness & Sudden Hope - Fight Part.wav" type="AudioStream" id=10]
+
 
 [sub_resource type="Curve2D" id=1]
 _data = {

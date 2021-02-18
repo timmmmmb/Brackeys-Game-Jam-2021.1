@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "DefaultEntity",
 "language": "GDScript",
-"path": "res://scenes/entitys/DefaultEntity.gd"
+"path": "res://scenes/entities/DefaultEntity.gd"
 }, {
 "base": "Node2D",
 "class": "StandardWeapon",

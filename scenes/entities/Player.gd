@@ -1,4 +1,4 @@
-extends "res://scenes/entitys/DefaultEntity.gd"
+extends "res://scenes/entities/DefaultEntity.gd"
 
 export (int) var acceleration = 50
 export (int) var max_speed = 300

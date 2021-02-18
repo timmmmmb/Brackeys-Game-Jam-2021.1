@@ -1,4 +1,4 @@
-extends "res://scenes/entitys/DefaultEntity.gd"
+extends "res://scenes/entities/DefaultEntity.gd"
 
 enum STATE {IDLE, MOVING, ATTACKING}
 var state = STATE.IDLE
