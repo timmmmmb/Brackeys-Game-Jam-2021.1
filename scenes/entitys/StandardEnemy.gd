@@ -42,7 +42,7 @@ func hit(damage):
 
 func destroy():
 	$AnimatedSprite.animation = "die"
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.call_deferred("disabled", true)
 	state = STATE.IDLE
 	$AnimatedSprite.play()
 	yield($AnimatedSprite, "animation_finished" )
