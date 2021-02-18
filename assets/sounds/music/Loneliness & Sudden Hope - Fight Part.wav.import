@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Loneliness & Sudden Hope - Fight Part.wav-14100b3a3ca3f781347dd1b3c4c4fbc4.sample"
+
+[deps]
+
+source_file="res://assets/sounds/music/Loneliness & Sudden Hope - Fight Part.wav"
+dest_files=[ "res://.import/Loneliness & Sudden Hope - Fight Part.wav-14100b3a3ca3f781347dd1b3c4c4fbc4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

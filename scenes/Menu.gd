@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -5)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), -10)
 
 
 func _process(_delta):

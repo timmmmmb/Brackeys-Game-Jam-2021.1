@@ -17,6 +17,7 @@ func shoot() -> void:
 	
 	
 func spawn_bullet() -> void:
+	$Sound.play(0)
 	var projectile = Projectile.instance()
 
 	projectile.position = self.position + get_parent().position

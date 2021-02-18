@@ -16,6 +16,7 @@ func shoot() -> void:
 
 
 func spawn_bullet() -> void:
+	$Sound.play(0)
 	for i in range(bullet_amount):
 		var projectile = Projectile.instance()
 	
