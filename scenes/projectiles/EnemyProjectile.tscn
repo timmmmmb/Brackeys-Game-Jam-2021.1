@@ -111,4 +111,3 @@ scale = Vector2( 1.7, 1.7 )
 frames = SubResource( 18 )
 [connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
-[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

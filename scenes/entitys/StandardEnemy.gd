@@ -41,6 +41,11 @@ func hit(damage):
 
 
 func destroy():
+	$AnimatedSprite.animation = "die"
+	$CollisionShape2D.disabled = true
+	state = STATE.IDLE
+	$AnimatedSprite.play()
+	yield($AnimatedSprite, "animation_finished" )
 	queue_free()
 
 

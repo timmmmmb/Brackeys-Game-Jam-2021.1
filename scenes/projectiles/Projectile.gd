@@ -19,10 +19,7 @@ func _on_Projectile_body_entered(body: Node) -> void:
 	if body is DefaultEntity:
 		body.hit(1)
 		$AnimatedSprite.animation = "hit"
-		$AnimatedSprite.play()
 		$CollisionShape2D.disabled = true
-
-
-func _on_AnimatedSprite_animation_finished() -> void:
-	if $AnimatedSprite.animation == "hit":
+		$AnimatedSprite.play()
+		yield($AnimatedSprite, "animation_finished" )
 		queue_free()
