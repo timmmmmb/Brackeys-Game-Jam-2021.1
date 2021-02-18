@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/projectiles/Beam.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/weapons/BeamWeapon.gd" type="Script" id=2]
+
+[node name="BeamWeapon" type="Node2D"]
+script = ExtResource( 2 )
+Projectile = null
+delay = 0.1
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Beam" parent="." instance=ExtResource( 1 )]
