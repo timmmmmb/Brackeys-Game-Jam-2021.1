@@ -6,7 +6,7 @@ var current_screen
 var screen_index = 0
 
 func _ready() -> void:
-	screens = [$Text/Screen, $Text/Screen2, $Text/Screen3]
+	screens = $Text.get_children()
 	next_screen()
 
 

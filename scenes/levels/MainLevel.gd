@@ -1,6 +1,6 @@
 extends Node2D
 
-var levels = [preload("res://scenes/levels/TutorialLevel1.tscn"), preload("res://scenes/levels/TutorialLevel2.tscn"), preload("res://scenes/levels/TutorialLevel3.tscn"), preload("res://scenes/levels/TutorialLevel4.tscn"), preload("res://scenes/levels/Cutscene1.tscn")]
+var levels = [preload("res://scenes/levels/TutorialLevel1.tscn"), preload("res://scenes/levels/TutorialLevel2.tscn"), preload("res://scenes/levels/TutorialLevel3.tscn"), preload("res://scenes/levels/TutorialLevel4.tscn"), preload("res://scenes/levels/Cutscene1.tscn"), preload("res://scenes/levels/Cutscene2.tscn"), preload("res://scenes/levels/Cutscene3.tscn")]
 var level_index = 0
 var current_level: Level
 var old_level: Level
@@ -20,8 +20,6 @@ func _physics_process(_delta: float) -> void:
 
 
 func load_level():
-	if level_index >= levels.size():
-		return
 	var level = levels[level_index].instance()
 	level.connect("level_finished", self, "next_level")
 	old_level = current_level
@@ -46,6 +44,8 @@ func despawn_level():
 
 
 func next_level():
+	if level_index >= levels.size():
+		return
 	load_level()
 	move_level()
 	despawn_level()
