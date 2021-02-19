@@ -55,7 +55,7 @@ func restart():
 	$GameOver.visible = false
 	$LifeBar.hearts = 3
 	var bullets = get_children()
-	player.connect("die", self, "game_over")
+	player.connect("death", self, "game_over")
 	player.connect("hit", $LifeBar, "sync_health")
 	for child in bullets: 
 		if child is Projectile:

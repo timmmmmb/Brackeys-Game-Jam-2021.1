@@ -17,6 +17,8 @@ func _ready():
 func wake_up():
 	state = STATE.MOVING
 	$AttackDelay.start(0)
+	$AnimatedSprite.animation = "flying"
+	$AnimatedSprite.play()
 
 
 func _physics_process(_delta):
@@ -31,12 +33,18 @@ func _physics_process(_delta):
 		shoot()
 		$AttackDelay.start(0)
 		state = STATE.MOVING
+	
 
 
 func hit(damage):
+	if $AnimatedSprite.animation == "hit":
+		return
 	health -= damage
 	if health <= 0:
 		destroy()
+	else:
+		$AnimatedSprite.animation = "hit"
+		$AnimatedSprite.play()
 
 
 func destroy():
@@ -44,10 +52,19 @@ func destroy():
 	$CollisionShape2D.call_deferred("disabled", true)
 	state = STATE.IDLE
 	$AnimatedSprite.play()
-	yield($AnimatedSprite, "animation_finished" )
-	emit_signal("death")
-	queue_free()
 
 
 func _on_AttackDelay_timeout() -> void:
 	state = STATE.ATTACKING
+
+
+func _on_AnimatedSprite_animation_finished() -> void:
+	if $AnimatedSprite.animation == "die":
+		emit_signal("death")
+		queue_free()
+	elif $AnimatedSprite.animation == "hit" :
+		$AnimatedSprite.animation = "flying"
+		$AnimatedSprite.play()
+	else:
+		$AnimatedSprite.animation = "flying"
+		$AnimatedSprite.play()
