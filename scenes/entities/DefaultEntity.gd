@@ -9,7 +9,8 @@ var current_weapon
 var velocity : Vector2 = Vector2(0, 0)
 
 func shoot():
-	current_weapon.shoot()
+	if current_weapon:
+		current_weapon.shoot()
 
 func hit(damage):
 	health -= damage

@@ -20,9 +20,9 @@ var player: Player
 
 
 func _ready() -> void:
+	player = $Player
 	load_level()
 	move_level()
-	player = $Player
 
 
 func _physics_process(delta: float) -> void:

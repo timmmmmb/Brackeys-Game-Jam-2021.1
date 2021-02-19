@@ -53,10 +53,13 @@ func destroy():
 	$AnimatedSprite.animation = "die"
 	$CollisionShape2D.call_deferred("disabled", true)
 	state = STATE.DEAD
+	$AttackDelay.stop()
 	$AnimatedSprite.play()
 
 
 func _on_AttackDelay_timeout() -> void:
+	if state == STATE.DEAD:
+		return
 	state = STATE.ATTACKING
 
 
