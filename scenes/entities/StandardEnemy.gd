@@ -1,7 +1,7 @@
 extends "res://scenes/entities/DefaultEntity.gd"
 class_name Enemy
 
-enum STATE {IDLE, MOVING, ATTACKING}
+enum STATE {IDLE, MOVING, ATTACKING, DEAD}
 var state = STATE.IDLE
 export (NodePath) var patrol_path
 var patrol_points
@@ -23,6 +23,8 @@ func wake_up():
 
 
 func _physics_process(_delta):
+	if state == STATE.DEAD:
+		return
 	if patrol_path && state != STATE.IDLE:
 		var target = patrol_points[patrol_index]
 		if position.distance_to(target) < 1:
@@ -50,7 +52,7 @@ func hit(damage):
 func destroy():
 	$AnimatedSprite.animation = "die"
 	$CollisionShape2D.call_deferred("disabled", true)
-	state = STATE.IDLE
+	state = STATE.DEAD
 	$AnimatedSprite.play()
 
 
