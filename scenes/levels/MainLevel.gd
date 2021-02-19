@@ -20,11 +20,13 @@ func load_level():
 	level_index += 1
 
 func move_level():
-	current_level.add()
+	if current_level:
+		current_level.add()
 
 
 func despawn_level():
-	old_level.remove()
+	if old_level:
+		old_level.remove()
 
 
 func next_level():
