@@ -169,4 +169,8 @@ anims/add = SubResource( 1 )
 [node name="Timer" type="Timer" parent="." index="6"]
 wait_time = 5.0
 autostart = true
+
+[node name="PressDelay" type="Timer" parent="." index="7"]
+wait_time = 0.1
+one_shot = true
 [connection signal="timeout" from="Timer" to="." method="next_screen"]

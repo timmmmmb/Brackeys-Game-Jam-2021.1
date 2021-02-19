@@ -1,6 +1,6 @@
 extends Node2D
 
-var levels = [preload("res://scenes/levels/TutorialLevel1.tscn"), preload("res://scenes/levels/TutorialLevel2.tscn"), preload("res://scenes/levels/TutorialLevel3.tscn"), preload("res://scenes/levels/TutorialLevel4.tscn")]
+var levels = [preload("res://scenes/levels/TutorialLevel1.tscn"), preload("res://scenes/levels/TutorialLevel2.tscn"), preload("res://scenes/levels/TutorialLevel3.tscn"), preload("res://scenes/levels/TutorialLevel4.tscn"), preload("res://scenes/levels/Cutscene1.tscn")]
 var level_index = 0
 var current_level: Level
 var old_level: Level
@@ -9,12 +9,12 @@ var player: Player
 
 
 func _ready() -> void:
+	player = $Player
 	load_level()
 	move_level()
-	player = $Player
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("restart") && $LifeBar.hearts == 0:
 		restart()
 
@@ -27,6 +27,12 @@ func load_level():
 	old_level = current_level
 	current_level = level
 	get_tree().root.get_child(0).add_child(level)
+	if level is Cutscene:
+		player.visible = false
+		player.set_paused(true)
+	else:
+		player.visible = true
+		player.set_paused(false)
 	level_index += 1
 
 func move_level():
