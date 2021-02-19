@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("restart"):
+	if Input.is_action_pressed("restart") && $LifeBar.hearts == 0:
 		restart()
 
 
