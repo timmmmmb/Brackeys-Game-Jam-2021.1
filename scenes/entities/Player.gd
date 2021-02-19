@@ -3,6 +3,39 @@ extends "res://scenes/entities/DefaultEntity.gd"
 export (int) var acceleration = 50
 export (int) var max_speed = 300
 export (float) var inertia = 0.9
+export (int) var friendly_distance = 15
+
+var friendlies = []
+
+
+func _realign_friendlies() -> void:
+	var center = $CenterFriendlyLocation.position
+	var left = $LeftFriendlyLocation.position
+	
+	var width = (len(friendlies) - 1) * friendly_distance
+	var left_most = - width / 2
+	var slope = left - center
+	
+	slope = slope.y / slope.x
+	
+	for index in len(friendlies):
+		var friendly: KinematicBody2D = friendlies[index]
+		friendly.position = center
+		
+		friendly.position.x = left_most + index * friendly_distance
+		friendly.position.y = center.y - slope * abs(friendly.position.x)
+
+
+func _ready() -> void:
+	var Friendly = preload("res://scenes/entities/Friendly.tscn")
+	
+	for i in 5:
+		var friendly = Friendly.instance()
+		friendlies.append(friendly)
+		add_child(friendly)
+	
+	_realign_friendlies()
+
 
 
 func _physics_process(_delta: float) -> void:
@@ -69,3 +102,6 @@ func _physics_process(_delta: float) -> void:
 		$StandardWeapon.shoot()
 #		$ShotgunWeapon.shoot()
 #		$MGWeapon.shoot()
+		
+		for friendly in friendlies:
+			friendly.shoot()

@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/weapons/ShotgunWeapon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/weapons/MGWeapon.tscn" type="PackedScene" id=5]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.0
 height = 16.0
@@ -53,12 +52,12 @@ position = Vector2( 0, -21 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "flying"
+frame = 1
 playing = true
 
 [node name="AnimatedSpriteClone" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "flying"
-frame = 2
 playing = true
 
 [node name="ShotgunWeapon" parent="." instance=ExtResource( 4 )]
@@ -70,3 +69,9 @@ position = Vector2( 0, -17.3362 )
 [node name="StandardWeapon" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -17.3362 )
 delay = 0.2
+
+[node name="LeftFriendlyLocation" type="Node2D" parent="."]
+position = Vector2( -48, 0 )
+
+[node name="CenterFriendlyLocation" type="Node2D" parent="."]
+position = Vector2( 0, -40 )

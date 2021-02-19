@@ -11,7 +11,6 @@
 [ext_resource path="res://scenes/entities/BeamEnemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sounds/music/Loneliness & Sudden Hope - Fight Part.wav" type="AudioStream" id=10]
 
-
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -192, -192, 0, 0, 0, 0, 192, -192 )
