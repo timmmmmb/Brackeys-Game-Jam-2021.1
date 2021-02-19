@@ -59,7 +59,6 @@ health = 1
 speed = 60
 patrol_path = NodePath("../../Paths/Path2D")
 attack_delay = 2.0
-weapon = NodePath("../Enemys/ShotgunEnemy/ShotgunWeapon")
 
 [node name="ShotgunEnemy2" parent="Enemys" index="4" instance=ExtResource( 5 )]
 position = Vector2( 128, -256 )
@@ -67,7 +66,6 @@ health = 1
 speed = 60
 patrol_path = NodePath("../../Paths/Path2D")
 attack_delay = 2.0
-weapon = NodePath("../Enemys/ShotgunEnemy2/ShotgunWeapon")
 
 [node name="Asteroid" parent="CelestialBounds" index="0" instance=ExtResource( 4 )]
 position = Vector2( -80, -184 )
