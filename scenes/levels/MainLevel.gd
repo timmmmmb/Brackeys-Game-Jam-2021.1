@@ -1,6 +1,6 @@
 extends Node2D
 
-var levels = [preload("res://scenes/levels/TutorialLevel1.tscn"), preload("res://scenes/levels/TutorialLevel2.tscn"), preload("res://scenes/levels/TutorialLevel3.tscn"), preload("res://scenes/levels/TutorialLevel4.tscn")]
+var levels = [preload("res://scenes/levels/Level1_4.tscn"), preload("res://scenes/levels/TutorialLevel1.tscn"), preload("res://scenes/levels/TutorialLevel2.tscn"), preload("res://scenes/levels/TutorialLevel3.tscn"), preload("res://scenes/levels/TutorialLevel4.tscn")]
 var level_index = 0
 var current_level: Level
 var old_level: Level
