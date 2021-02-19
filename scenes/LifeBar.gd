@@ -14,3 +14,7 @@ func _process(_delta: float) -> void:
 	$Heart2.is_available = hearts >= 2
 	$Heart3.is_available = hearts >= 3
 	pass
+
+
+func sync_health(health) -> void:
+	hearts = health

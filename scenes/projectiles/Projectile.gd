@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name Projectile
 export (int) var speed = 2
 
 func _ready() -> void:

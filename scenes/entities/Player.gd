@@ -1,4 +1,6 @@
 extends "res://scenes/entities/DefaultEntity.gd"
+class_name Player
+signal hit(health)
 
 export (int) var acceleration = 50
 export (int) var max_speed = 300
@@ -106,3 +108,20 @@ func _physics_process(_delta: float) -> void:
 		
 		for friendly in friendlies:
 			friendly.shoot()
+
+
+func hit(damage):
+	health -= damage
+	emit_signal("hit", health)
+	$AnimatedSprite.animation = "hit"
+	$AnimatedSprite.play()
+	if health <= 0:
+		destroy()
+
+func destroy():
+	$CollisionShape2D.call_deferred("disabled", true)
+	$AnimatedSprite.animation = "die"
+	$AnimatedSprite.play()
+	yield($AnimatedSprite, "animation_finished" )
+	emit_signal("death")
+	queue_free()

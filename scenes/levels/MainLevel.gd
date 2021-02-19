@@ -4,10 +4,20 @@ var levels = [preload("res://scenes/levels/TutorialLevel1.tscn"), preload("res:/
 var level_index = 0
 var current_level: Level
 var old_level: Level
+export(PackedScene) var Player = preload("res://scenes/entities/Player.tscn")
+var player: Player
+
 
 func _ready() -> void:
 	load_level()
 	move_level()
+	player = $Player
+
+
+func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("restart"):
+		restart()
+
 
 func load_level():
 	if level_index >= levels.size():
@@ -20,12 +30,12 @@ func load_level():
 	level_index += 1
 
 func move_level():
-	if current_level:
+	if current_level != null:
 		current_level.add()
 
 
 func despawn_level():
-	if old_level:
+	if old_level != null:
 		old_level.remove()
 
 
@@ -33,3 +43,26 @@ func next_level():
 	load_level()
 	move_level()
 	despawn_level()
+
+func game_over():
+	$GameOver.visible = true
+
+
+func restart():
+	level_index = 0
+	player = Player.instance()
+	get_tree().root.get_child(0).add_child(player)
+	$GameOver.visible = false
+	$LifeBar.hearts = 3
+	var bullets = get_children()
+	player.connect("die", self, "game_over")
+	player.connect("hit", $LifeBar, "sync_health")
+	for child in bullets: 
+		if child is Projectile:
+			child.queue_free()
+	load_level()
+	despawn_level()
+	move_level()
+
+
+
