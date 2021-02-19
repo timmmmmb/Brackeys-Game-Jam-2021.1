@@ -7,7 +7,7 @@ func _on_Area2D_body_entered(body: Node) -> void:
 
 
 func _on_AnimatedSprite_frame_changed() -> void:
-	if $AnimatedSprite.frame == 3:
+	if $AnimatedSprite.frame == 6:
 		$CollisionShape2D.set_deferred("disabled", false)
-	elif $AnimatedSprite.frame == 4:
+	elif $AnimatedSprite.frame == 7:
 		$CollisionShape2D.set_deferred("disabled", true)
