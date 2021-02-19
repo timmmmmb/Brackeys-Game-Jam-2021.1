@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/levels/Cutscene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/DefaultLevel.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/images/ui/textbox-dialogue.png" type="Texture" id=5]
 [ext_resource path="res://assets/images/portraits/friendly-portrait 48x48.png" type="Texture" id=6]
 [ext_resource path="res://assets/images/portraits/lonely-pilot 48x48.png" type="Texture" id=7]
+[ext_resource path="res://assets/images/portraits/alien-portrait 48x48.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "add"
@@ -48,7 +49,7 @@ margin_top = -88.0
 margin_right = 70.0
 margin_bottom = -44.0
 custom_fonts/font = ExtResource( 3 )
-text = "Friendly"
+text = "Boss"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,7 +61,7 @@ margin_top = -16.0
 margin_right = 184.0
 margin_bottom = 88.0
 custom_fonts/font = ExtResource( 4 )
-text = "Well, hello there! Need some support?"
+text = "NO!"
 align = 1
 autowrap = true
 __meta__ = {
@@ -70,8 +71,8 @@ __meta__ = {
 [node name="friendly-portrait 48x48" type="Sprite" parent="Text/Screen" index="3"]
 position = Vector2( -128, -64 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 6 )
-vframes = 2
+texture = ExtResource( 8 )
+vframes = 4
 
 [node name="Screen2" type="Container" parent="Text" index="1"]
 visible = false
@@ -104,7 +105,7 @@ margin_top = -16.0
 margin_right = 184.0
 margin_bottom = 88.0
 custom_fonts/font = ExtResource( 4 )
-text = "You are a bold one, haha! Let's blast 'em!"
+text = "Where is the enemy? Did they flee? Are they dead?"
 align = 1
 autowrap = true
 __meta__ = {
@@ -148,7 +149,7 @@ margin_top = -16.0
 margin_right = 184.0
 margin_bottom = 88.0
 custom_fonts/font = ExtResource( 4 )
-text = "Roger, roger."
+text = "It seems in your anger... you defeated them."
 align = 1
 autowrap = true
 __meta__ = {
@@ -159,6 +160,50 @@ __meta__ = {
 position = Vector2( -128, -64 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )
+vframes = 2
+
+[node name="Screen4" type="Container" parent="Text" index="3"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="textbox-dialogue" type="Sprite" parent="Text/Screen4" index="0"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+vframes = 13
+
+[node name="Name" type="Label" parent="Text/Screen4" index="1"]
+margin_left = -80.0
+margin_top = -88.0
+margin_right = 70.0
+margin_bottom = -44.0
+custom_fonts/font = ExtResource( 3 )
+text = "You"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Text" type="Label" parent="Text/Screen4" index="2"]
+margin_left = -184.0
+margin_top = -16.0
+margin_right = 184.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 4 )
+text = "I couldn't have! They were alive; I felt it... I... NOOOOOOO! Uhm- I mean YAAAAAY!"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lonely-pilot 48x48" type="Sprite" parent="Text/Screen4" index="3"]
+position = Vector2( -128, -56 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]

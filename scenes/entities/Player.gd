@@ -7,6 +7,7 @@ export (int) var max_speed = 300
 export (float) var inertia = 0.9
 export (int) var friendly_distance = 15
 export (int) var friendly_amount = 0
+var paused = false
 
 var friendlies = []
 
@@ -42,6 +43,8 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if paused:
+		return
 	var left = Input.is_action_pressed("left")
 	var right = Input.is_action_pressed("right")
 	var up = Input.is_action_pressed("up")
@@ -125,3 +128,7 @@ func destroy():
 	yield($AnimatedSprite, "animation_finished" )
 	emit_signal("death")
 	queue_free()
+	
+func set_paused(_paused):
+	self.paused = _paused
+	

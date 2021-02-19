@@ -1,4 +1,5 @@
 extends "res://scenes/entities/DefaultEntity.gd"
+class_name Enemy
 
 enum STATE {IDLE, MOVING, ATTACKING}
 var state = STATE.IDLE
@@ -33,7 +34,6 @@ func _physics_process(_delta):
 		shoot()
 		$AttackDelay.start(0)
 		state = STATE.MOVING
-	
 
 
 func hit(damage):
