@@ -4,6 +4,7 @@ export (int) var acceleration = 50
 export (int) var max_speed = 300
 export (float) var inertia = 0.9
 export (int) var friendly_distance = 15
+export (int) var friendly_amount = 0
 
 var friendlies = []
 
@@ -29,7 +30,7 @@ func _realign_friendlies() -> void:
 func _ready() -> void:
 	var Friendly = preload("res://scenes/entities/Friendly.tscn")
 	
-	for i in 5:
+	for i in friendly_amount:
 		var friendly = Friendly.instance()
 		friendlies.append(friendly)
 		add_child(friendly)

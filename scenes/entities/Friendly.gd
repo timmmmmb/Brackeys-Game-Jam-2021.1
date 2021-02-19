@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 func shoot() -> void:
-	$StandardWeapon.shoot()
+	current_weapon.shoot()
 
 
 func hit(damage) -> void:

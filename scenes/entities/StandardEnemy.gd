@@ -13,7 +13,6 @@ func _ready():
 	current_weapon = get_node(weapon)
 	if patrol_path:
 		patrol_points = get_node(patrol_path).curve.get_baked_points()
-	wake_up()
 
 func wake_up():
 	state = STATE.MOVING
@@ -46,6 +45,7 @@ func destroy():
 	state = STATE.IDLE
 	$AnimatedSprite.play()
 	yield($AnimatedSprite, "animation_finished" )
+	emit_signal("death")
 	queue_free()
 
 

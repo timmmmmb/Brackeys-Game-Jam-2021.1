@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name DefaultEntity
 
+signal death
+
 export var health = 3
 export var speed = 10
 var current_weapon
@@ -15,4 +17,4 @@ func hit(damage):
 		destroy()
 
 func destroy():
-	pass
+	emit_signal("death")

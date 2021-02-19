@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/font/font22pt.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/levels/DefaultLevel.tscn" type="PackedScene" id=2]
+
+[node name="Level" instance=ExtResource( 2 )]
+
+[node name="Label" type="Label" parent="Text" index="0"]
+margin_left = -104.0
+margin_top = -24.0
+margin_right = 113.0
+margin_bottom = 33.0
+custom_fonts/font = ExtResource( 1 )
+text = "Move with WASD
+Shoot with SPACE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="." index="4"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="finish_level"]

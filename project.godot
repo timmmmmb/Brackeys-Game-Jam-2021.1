@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/entities/DefaultEntity.gd"
 }, {
+"base": "Level",
+"class": "EnemyLevel",
+"language": "GDScript",
+"path": "res://scenes/levels/DefaultEnemyLevel.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://scenes/levels/DefaultLevel.gd"
+}, {
 "base": "Node2D",
 "class": "StandardWeapon",
 "language": "GDScript",
@@ -21,6 +31,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "DefaultEntity": "",
+"EnemyLevel": "",
+"Level": "",
 "StandardWeapon": ""
 }
 
