@@ -85,7 +85,7 @@ func despawn_level():
 
 func next_level():
 	if level_index >= levels.size():
-		get_tree().change_scene("res://scenes/Cutscenes.tscn")
+		get_tree().change_scene("res://scenes/WinScreen.tscn")
 		return
 	if (level_index) % 5 == 0:
 		save()
