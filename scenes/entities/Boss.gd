@@ -51,7 +51,7 @@ func hit(damage):
 				$RocketTimer.start(0)
 			if stage == 4:
 				$AttackDelay.start(0)
-		if $AnimatedSprite.animation == "opengate" && $AnimatedSprite.frame < 5:
+		if $AnimatedSprite.animation == "opengate" && $AnimatedSprite.frame < 3:
 			spawn_frame = $AnimatedSprite.frame
 		
 		$"healthbar-boss-health".frame = ceil(float(health) / 8.0)

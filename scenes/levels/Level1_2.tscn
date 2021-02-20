@@ -59,29 +59,22 @@ position = Vector2( 0, -72 )
 
 [node name="StandardEnemy" parent="Enemys" index="0" instance=ExtResource( 1 )]
 position = Vector2( 0, -360 )
-health = 2
 speed = 40
 patrol_path = NodePath("../../Paths/Path2DBigRing")
 
 [node name="StandardEnemy2" parent="Enemys" index="1" instance=ExtResource( 1 )]
 position = Vector2( 0, -304 )
-health = 2
 speed = 40
 patrol_path = NodePath("../../Paths/Path2D")
-attack_delay = 3.0
 
 [node name="StandardEnemy4" parent="Enemys" index="2" instance=ExtResource( 1 )]
 position = Vector2( 0, -416 )
-health = 2
 patrol_path = NodePath("../../Paths/Path2DBigRing")
-attack_delay = 3.0
 
 [node name="StandardEnemy3" parent="Enemys" index="3" instance=ExtResource( 1 )]
 position = Vector2( 0, -248 )
-health = 2
 speed = 40
 patrol_path = NodePath("../../Paths/Path2D")
-attack_delay = 4.0
 
 [node name="Asteroid2" parent="CelestialBounds" index="0" instance=ExtResource( 4 )]
 position = Vector2( 192, 128 )

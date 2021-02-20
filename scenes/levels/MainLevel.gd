@@ -53,7 +53,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("restart") && $LifeBar.hearts == 0:
+	if Input.is_action_pressed("restart") && $LifeBar.hearts <= 0:
 		restart()
 
 
@@ -87,7 +87,7 @@ func next_level():
 	if level_index >= levels.size():
 		get_tree().change_scene("res://scenes/Cutscenes.tscn")
 		return
-	if (level_index+1) % 5 == 0:
+	if (level_index) % 5 == 0:
 		save()
 	load_level()
 	move_level()
@@ -118,5 +118,6 @@ func restart():
 
 
 func save():
-	friendly_amount = player.friendly_amount
-	save_level = level_index
+	if player != null:
+		friendly_amount = player.friendly_amount
+		save_level = level_index

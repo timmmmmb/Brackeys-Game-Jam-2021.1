@@ -35,7 +35,6 @@ position = Vector2( 0, -72 )
 
 [node name="BeamEnemy" parent="Enemys" index="0" instance=ExtResource( 3 )]
 position = Vector2( 0, -240 )
-speed = 40
 patrol_path = NodePath("../../Paths/Path2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]

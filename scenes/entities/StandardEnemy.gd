@@ -15,7 +15,9 @@ func _ready():
 
 func wake_up():
 	state = STATE.MOVING
-	$AttackDelay.start(0)
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	$AttackDelay.start(rng.randf_range(0,2)+attack_delay)
 	$AnimatedSprite.animation = "flying"
 	$AnimatedSprite.play()
 	if patrol_path:
@@ -34,7 +36,7 @@ func behaviour():
 		velocity = move_and_slide(velocity)
 	if state == STATE.ATTACKING:
 		shoot()
-		$AttackDelay.start(0)
+		$AttackDelay.start(attack_delay)
 		state = STATE.MOVING
 
 func _physics_process(_delta):

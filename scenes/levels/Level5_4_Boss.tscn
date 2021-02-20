@@ -7,7 +7,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 448, -160, 0, 0, 0, 0, -448, -160 )
+"points": PoolVector2Array( 0, 0, 0, 0, 448, -192, 0, 0, 0, 0, -448, -192 )
 }
 
 [sub_resource type="Animation" id=2]
