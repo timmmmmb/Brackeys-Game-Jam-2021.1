@@ -54,7 +54,7 @@ func hit(damage):
 		if $AnimatedSprite.animation == "opengate" && $AnimatedSprite.frame < 5:
 			spawn_frame = $AnimatedSprite.frame
 		
-		$"healthbar-boss-health".frame = health / 8
+		$"healthbar-boss-health".frame = ceil(float(health) / 8.0)
 		$AnimatedSprite.animation = "hit"
 		$AnimatedSprite.play()
 		print(health)
