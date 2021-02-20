@@ -38,12 +38,10 @@ position = Vector2( 0, -72 )
 
 [node name="ShotgunEnemy2" parent="Enemys" index="0" instance=ExtResource( 6 )]
 position = Vector2( 144, -230 )
-health = 1
 patrol_path = NodePath("../../Paths/Path2D")
 
 [node name="ShotgunEnemy" parent="Enemys" index="1" instance=ExtResource( 6 )]
 position = Vector2( -112, -230 )
-health = 1
 patrol_path = NodePath("../../Paths/Path2D")
 
 [node name="StandardEnemy" parent="Enemys" index="2" instance=ExtResource( 1 )]
