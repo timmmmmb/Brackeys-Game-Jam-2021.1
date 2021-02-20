@@ -71,10 +71,8 @@ func _physics_process(_delta: float) -> void:
 		
 	if left or right or up or down:
 		$AnimatedSprite.animation = "flying"
-		$AnimatedSpriteClone.animation = "flying"
 	else:
 		$AnimatedSprite.animation = "default"
-		$AnimatedSpriteClone.animation = "flying"
 		
 	for friendly in friendlies:
 		friendly.get_node("AnimatedSprite").animation = \
@@ -88,23 +86,20 @@ func _physics_process(_delta: float) -> void:
 	var viewport_size = get_viewport_rect().size \
 			/ get_canvas_transform().get_scale()
 	var half_viewport_size = viewport_size / 2
+	var half_width = $CollisionShape2D.shape.height / 2
 	var half_height = $CollisionShape2D.shape.height / 2 \
 			+ $CollisionShape2D.shape.radius
-	
+
+	position.x = clamp(position.x, -half_viewport_size.x + half_width,
+			half_viewport_size.x - half_width)
+
 	position.y = clamp(position.y, -half_viewport_size.y + half_height,
 			half_viewport_size.y - half_height)
-	
-	$AnimatedSpriteClone.global_position = position
 	
 	if position.x < -half_viewport_size.x:
 		position.x += viewport_size.x
 	elif position.x > half_viewport_size.x:
 		position.x -= viewport_size.x
-	
-	if position.x < 0:
-		$AnimatedSpriteClone.global_position.x += viewport_size.x
-	else:
-		$AnimatedSpriteClone.global_position.x -= viewport_size.x
 	
 	if is_shooting:
 		$StandardWeapon.shoot()
