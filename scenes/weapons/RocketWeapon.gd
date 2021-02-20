@@ -1,4 +1,6 @@
-extends StandardWeapon
+extends Weapon
+
+export(PackedScene) var Rocket = preload("res://scenes/projectiles/Rocket.tscn")
 
 func spawn_bullet() -> void:
 	$Sound.play(0)

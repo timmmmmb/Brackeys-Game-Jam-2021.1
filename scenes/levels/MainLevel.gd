@@ -9,11 +9,11 @@ var levels = [
 	preload("res://scenes/levels/Level0_2.tscn"),
 	preload("res://scenes/levels/Level0_3.tscn"),
 	preload("res://scenes/levels/Level0_4.tscn"),
+	preload("res://scenes/levels/Level1_4.tscn"),
+	preload("res://scenes/levels/Cutscene1.tscn"),
 	preload("res://scenes/levels/Level1_1.tscn"),
 	preload("res://scenes/levels/Level1_2.tscn"),
 	preload("res://scenes/levels/Level1_3.tscn"),
-	preload("res://scenes/levels/Level1_4.tscn"),
-	preload("res://scenes/levels/Cutscene1.tscn"),
 	preload("res://scenes/levels/Level2_1.tscn"),
 	preload("res://scenes/levels/Cutscene2.tscn"),
 	preload("res://scenes/levels/Cutscene3.tscn")]

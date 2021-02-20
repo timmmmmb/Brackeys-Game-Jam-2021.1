@@ -1,45 +1,14 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://assets/images/enemies/boss-main - opening gates while flying - 48x48.png" type="Texture" id=1]
-[ext_resource path="res://scenes/weapons/MGWeapon.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/entities/Boss.gd" type="Script" id=3]
+[ext_resource path="res://assets/images/enemies/boss-stationary-drone 48x48.png" type="Texture" id=1]
+[ext_resource path="res://scenes/weapons/ShotgunWeapon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/entities/StandardEnemy.gd" type="Script" id=3]
 [ext_resource path="res://scenes/projectiles/EnemyProjectile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/images/effects/explosion - 48x48.png" type="Texture" id=5]
-[ext_resource path="res://assets/images/enemies/boss-main - 48x48.png" type="Texture" id=6]
-[ext_resource path="res://scenes/weapons/ShotgunWeapon.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/weapons/RocketWeapon.tscn" type="PackedScene" id=8]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 16.0
-height = 16.0
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 1 )
-region = Rect2( 96, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 1 )
-region = Rect2( 144, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 1 )
-region = Rect2( 192, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 1 )
-region = Rect2( 240, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 4
@@ -101,44 +70,47 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 528, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
 region = Rect2( 48, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
 region = Rect2( 96, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
 region = Rect2( 144, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
 region = Rect2( 192, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
 region = Rect2( 240, 0, 48, 48 )
 
-[sub_resource type="SpriteFrames" id=21]
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 1 )
+region = Rect2( 288, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 1 )
+region = Rect2( 336, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
-"frames": [ SubResource( 22 ) ],
+"frames": [ SubResource( 2 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
-}, {
-"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
-"loop": false,
-"name": "opengate",
-"speed": 12.0
 }, {
 "frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": false,
 "name": "die",
 "speed": 12.0
 }, {
-"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
 "name": "flying",
 "speed": 5.0
@@ -149,37 +121,34 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[node name="Boss" type="KinematicBody2D"]
-scale = Vector2( 3, 3 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.7066
+height = 10.7348
+
+[node name="Drone" type="KinematicBody2D"]
+scale = Vector2( 0.5, 0.5 )
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
-health = 60
-speed = 30
-weapon = NodePath("RocketWeapon")
-
-[node name="RocketWeapon" parent="." instance=ExtResource( 8 )]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+attack_delay = 2.0
+weapon = NodePath("../Drone/ShotgunWeapon")
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 21 )
-animation = "opengate"
+frames = SubResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4 )
+shape = SubResource( 1 )
 
 [node name="AttackDelay" type="Timer" parent="."]
 one_shot = true
 
-[node name="MGWeapon" parent="." instance=ExtResource( 2 )]
+[node name="ShotgunWeapon" parent="." instance=ExtResource( 2 )]
 rotation = 3.14159
 Projectile = ExtResource( 4 )
-bullet_amount = 3
-bullet_delay = 0.2
-
-[node name="ShotgunWeapon" parent="." instance=ExtResource( 7 )]
 bullet_amount = 12
 spread = 360
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
