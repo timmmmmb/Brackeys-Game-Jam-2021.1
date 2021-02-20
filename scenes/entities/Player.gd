@@ -11,6 +11,7 @@ var paused = false
 
 var friendlies = []
 
+
 func _add_friendly(friendly: Node) -> void:
 	var position = friendly.global_position
 	friendly.pick_uo()

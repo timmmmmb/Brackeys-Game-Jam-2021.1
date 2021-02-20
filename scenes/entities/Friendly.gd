@@ -8,6 +8,7 @@ var initial_position: Vector2
 var floating_distance: int = 5
 var floating_time: int = 2
 var time: float = 0
+var target_position: Vector2
 
 var picked_up = false
 
@@ -26,7 +27,15 @@ func _process(delta: float) -> void:
 		time = fmod(time + delta, floating_time)
 		self.position.y = initial_position.y + \
 				sin(time * TAU / floating_time) * floating_distance
-	
+	else:
+		if position != target_position:
+			var direction =  target_position - position
+			
+			if direction.length() < speed * delta:
+				position = target_position
+			else:
+				position += direction * delta
+
 
 func shoot() -> void:
 	current_weapon.shoot()
@@ -38,5 +47,11 @@ func hit(damage) -> void:
 		destroy()
 
 
-func destroy() -> void:
+func destroy():
+	$CollisionShape2D.call_deferred("disabled", true)
+	$AnimatedSprite.animation = "die"
+	$AnimatedSprite.play()
+	$AnimatedSprite.frame = 0
+	yield($AnimatedSprite, "animation_finished" )
+	emit_signal("death")
 	queue_free()
