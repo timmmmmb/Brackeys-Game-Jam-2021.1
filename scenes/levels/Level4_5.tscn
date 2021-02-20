@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/levels/DefaultLevel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/DefaultEnemyLevel.gd" type="Script" id=3]
+[ext_resource path="res://scenes/entities/BeamEnemy.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -384, -192, 0, 0, 0, 0, -256, -192 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -384, -256, 0, 0, 0, 0, -256, -256 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -192, -192, 0, 0, 0, 0, -64, -192 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -192, -256, 0, 0, 0, 0, -64, -256 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 64, -256, 0, 0, 0, 0, 192, -256 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 64, -192, 0, 0, 0, 0, 192, -192 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 256, -256, 0, 0, 0, 0, 384, -256 )
+}
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 256, -192, 0, 0, 0, 0, 384, -192 )
+}
+
+[sub_resource type="Animation" id=9]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Enemys:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -72 ), Vector2( 0, 55 ) ]
+}
+
+[node name="Level" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="Path2D" type="Path2D" parent="Paths" index="0"]
+curve = SubResource( 1 )
+
+[node name="Path2D2" type="Path2D" parent="Paths" index="1"]
+curve = SubResource( 2 )
+
+[node name="Path2D3" type="Path2D" parent="Paths" index="2"]
+curve = SubResource( 3 )
+
+[node name="Path2D4" type="Path2D" parent="Paths" index="3"]
+curve = SubResource( 4 )
+
+[node name="Path2D5" type="Path2D" parent="Paths" index="4"]
+curve = SubResource( 5 )
+
+[node name="Path2D6" type="Path2D" parent="Paths" index="5"]
+curve = SubResource( 6 )
+
+[node name="Path2D7" type="Path2D" parent="Paths" index="6"]
+curve = SubResource( 7 )
+
+[node name="Path2D8" type="Path2D" parent="Paths" index="7"]
+curve = SubResource( 8 )
+
+[node name="Enemys" parent="." index="1"]
+position = Vector2( 0, -72 )
+
+[node name="BeamEnemy" parent="Enemys" index="0" instance=ExtResource( 4 )]
+position = Vector2( -384, -248 )
+speed = 30
+patrol_path = NodePath("../../Paths/Path2D")
+
+[node name="BeamEnemy2" parent="Enemys" index="1" instance=ExtResource( 4 )]
+position = Vector2( 192, -248 )
+speed = 30
+patrol_path = NodePath("../../Paths/Path2D6")
+
+[node name="BeamEnemy3" parent="Enemys" index="2" instance=ExtResource( 4 )]
+position = Vector2( -192, -248 )
+speed = 30
+patrol_path = NodePath("../../Paths/Path2D3")
+
+[node name="BeamEnemy4" parent="Enemys" index="3" instance=ExtResource( 4 )]
+position = Vector2( 384, -248 )
+speed = 30
+patrol_path = NodePath("../../Paths/Path2D8")
+
+[node name="BeamEnemy5" parent="Enemys" index="4" instance=ExtResource( 4 )]
+position = Vector2( -256, -312 )
+speed = 30
+patrol_path = NodePath("../../Paths/Path2D2")
+
+[node name="BeamEnemy6" parent="Enemys" index="5" instance=ExtResource( 4 )]
+position = Vector2( 64, -312 )
+speed = 30
+patrol_path = NodePath("../../Paths/Path2D5")
+
+[node name="BeamEnemy7" parent="Enemys" index="6" instance=ExtResource( 4 )]
+position = Vector2( -64, -312 )
+speed = 30
+patrol_path = NodePath("../../Paths/Path2D4")
+
+[node name="BeamEnemy8" parent="Enemys" index="7" instance=ExtResource( 4 )]
+position = Vector2( 256, -312 )
+speed = 30
+patrol_path = NodePath("../../Paths/Path2D7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+anims/add = SubResource( 9 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]

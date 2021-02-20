@@ -1,0 +1,190 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/levels/DefaultLevel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/DefaultEnemyLevel.gd" type="Script" id=3]
+[ext_resource path="res://scenes/entities/StandardEnemy.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Enemys:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -80 ), Vector2( 0, 25 ) ]
+}
+
+[node name="Level" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="Enemys" parent="." index="1"]
+position = Vector2( 0, -80 )
+
+[node name="StandardEnemy" parent="Enemys" index="0" instance=ExtResource( 5 )]
+position = Vector2( -111.704, -241 )
+health = 2
+
+[node name="StandardEnemy2" parent="Enemys" index="1" instance=ExtResource( 5 )]
+position = Vector2( -21.6025, -241 )
+health = 2
+
+[node name="StandardEnemy3" parent="Enemys" index="2" instance=ExtResource( 5 )]
+position = Vector2( -199.136, -241 )
+health = 2
+
+[node name="StandardEnemy4" parent="Enemys" index="3" instance=ExtResource( 5 )]
+position = Vector2( -67.6545, -241 )
+health = 2
+
+[node name="StandardEnemy5" parent="Enemys" index="4" instance=ExtResource( 5 )]
+position = Vector2( -157.089, -241 )
+health = 2
+
+[node name="StandardEnemy6" parent="Enemys" index="5" instance=ExtResource( 5 )]
+position = Vector2( 110.432, -241 )
+health = 2
+
+[node name="StandardEnemy7" parent="Enemys" index="6" instance=ExtResource( 5 )]
+position = Vector2( 200.534, -241 )
+health = 2
+
+[node name="StandardEnemy8" parent="Enemys" index="7" instance=ExtResource( 5 )]
+position = Vector2( 23, -241 )
+health = 2
+
+[node name="StandardEnemy9" parent="Enemys" index="8" instance=ExtResource( 5 )]
+position = Vector2( 154.482, -241 )
+health = 2
+
+[node name="StandardEnemy10" parent="Enemys" index="9" instance=ExtResource( 5 )]
+position = Vector2( 65.0472, -241 )
+health = 2
+
+[node name="StandardEnemy11" parent="Enemys" index="10" instance=ExtResource( 5 )]
+position = Vector2( -111.704, -294 )
+health = 2
+
+[node name="StandardEnemy12" parent="Enemys" index="11" instance=ExtResource( 5 )]
+position = Vector2( -21.6025, -294 )
+health = 2
+
+[node name="StandardEnemy13" parent="Enemys" index="12" instance=ExtResource( 5 )]
+position = Vector2( -199.136, -294 )
+health = 2
+
+[node name="StandardEnemy14" parent="Enemys" index="13" instance=ExtResource( 5 )]
+position = Vector2( -67.6545, -294 )
+health = 2
+
+[node name="StandardEnemy15" parent="Enemys" index="14" instance=ExtResource( 5 )]
+position = Vector2( -157.089, -294 )
+health = 2
+
+[node name="StandardEnemy16" parent="Enemys" index="15" instance=ExtResource( 5 )]
+position = Vector2( 110.432, -294 )
+health = 2
+
+[node name="StandardEnemy17" parent="Enemys" index="16" instance=ExtResource( 5 )]
+position = Vector2( 200.534, -294 )
+health = 2
+
+[node name="StandardEnemy18" parent="Enemys" index="17" instance=ExtResource( 5 )]
+position = Vector2( 23, -294 )
+health = 2
+
+[node name="StandardEnemy19" parent="Enemys" index="18" instance=ExtResource( 5 )]
+position = Vector2( 154.482, -294 )
+health = 2
+
+[node name="StandardEnemy20" parent="Enemys" index="19" instance=ExtResource( 5 )]
+position = Vector2( 65.0472, -294 )
+health = 2
+
+[node name="StandardEnemy21" parent="Enemys" index="20" instance=ExtResource( 5 )]
+position = Vector2( 391.432, -241 )
+health = 2
+
+[node name="StandardEnemy22" parent="Enemys" index="21" instance=ExtResource( 5 )]
+position = Vector2( 481.534, -241 )
+health = 2
+
+[node name="StandardEnemy23" parent="Enemys" index="22" instance=ExtResource( 5 )]
+position = Vector2( 304, -241 )
+health = 2
+
+[node name="StandardEnemy24" parent="Enemys" index="23" instance=ExtResource( 5 )]
+position = Vector2( 435.482, -241 )
+health = 2
+
+[node name="StandardEnemy25" parent="Enemys" index="24" instance=ExtResource( 5 )]
+position = Vector2( 346.047, -241 )
+health = 2
+
+[node name="StandardEnemy26" parent="Enemys" index="25" instance=ExtResource( 5 )]
+position = Vector2( 391.432, -294 )
+health = 2
+
+[node name="StandardEnemy27" parent="Enemys" index="26" instance=ExtResource( 5 )]
+position = Vector2( 481.534, -294 )
+health = 2
+
+[node name="StandardEnemy28" parent="Enemys" index="27" instance=ExtResource( 5 )]
+position = Vector2( 304, -294 )
+health = 2
+
+[node name="StandardEnemy29" parent="Enemys" index="28" instance=ExtResource( 5 )]
+position = Vector2( 435.482, -294 )
+health = 2
+
+[node name="StandardEnemy30" parent="Enemys" index="29" instance=ExtResource( 5 )]
+position = Vector2( 346.047, -294 )
+health = 2
+
+[node name="StandardEnemy31" parent="Enemys" index="30" instance=ExtResource( 5 )]
+position = Vector2( -392.568, -241 )
+health = 2
+
+[node name="StandardEnemy32" parent="Enemys" index="31" instance=ExtResource( 5 )]
+position = Vector2( -302.466, -241 )
+health = 2
+
+[node name="StandardEnemy33" parent="Enemys" index="32" instance=ExtResource( 5 )]
+position = Vector2( -480, -241 )
+health = 2
+
+[node name="StandardEnemy34" parent="Enemys" index="33" instance=ExtResource( 5 )]
+position = Vector2( -348.518, -241 )
+health = 2
+
+[node name="StandardEnemy35" parent="Enemys" index="34" instance=ExtResource( 5 )]
+position = Vector2( -437.953, -241 )
+health = 2
+
+[node name="StandardEnemy36" parent="Enemys" index="35" instance=ExtResource( 5 )]
+position = Vector2( -392.568, -294 )
+health = 2
+
+[node name="StandardEnemy37" parent="Enemys" index="36" instance=ExtResource( 5 )]
+position = Vector2( -302.466, -294 )
+health = 2
+
+[node name="StandardEnemy38" parent="Enemys" index="37" instance=ExtResource( 5 )]
+position = Vector2( -480, -294 )
+health = 2
+
+[node name="StandardEnemy39" parent="Enemys" index="38" instance=ExtResource( 5 )]
+position = Vector2( -348.518, -294 )
+health = 2
+
+[node name="StandardEnemy40" parent="Enemys" index="39" instance=ExtResource( 5 )]
+position = Vector2( -437.953, -294 )
+health = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+anims/add = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]

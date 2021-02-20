@@ -5,22 +5,38 @@ var levels = [
 	preload("res://scenes/levels/TutorialLevel2.tscn"), 
 	preload("res://scenes/levels/TutorialLevel3.tscn"), 
 	preload("res://scenes/levels/TutorialLevel4.tscn"),
-	preload("res://scenes/levels/Level0_1.tscn"),
-	preload("res://scenes/levels/Level0_2.tscn"),
-	preload("res://scenes/levels/Level0_3.tscn"),
-	preload("res://scenes/levels/Level0_4.tscn"),
-	preload("res://scenes/levels/Level1_4.tscn"),
-	preload("res://scenes/levels/Cutscene1.tscn"),
-	preload("res://scenes/levels/Level1_1.tscn"),
+	preload("res://scenes/levels/TutorialLevel5.tscn"),
+	
+	preload("res://scenes/levels/Level1_1_Title.tscn"),
 	preload("res://scenes/levels/Level1_2.tscn"),
 	preload("res://scenes/levels/Level1_3.tscn"),
-	preload("res://scenes/levels/Level2_1.tscn"),
+	preload("res://scenes/levels/Level1_4.tscn"),
+	preload("res://scenes/levels/Level1_5.tscn"),
+	
+	preload("res://scenes/levels/Level2_1_Title.tscn"),
 	preload("res://scenes/levels/Level2_2.tscn"),
-	preload("res://scenes/levels/Level2_3.tscn"),
+	preload("res://scenes/levels/Level2_3_Cutscene.tscn"),
 	preload("res://scenes/levels/Level2_4.tscn"),
-	preload("res://scenes/levels/Cutscene2.tscn"),
-	preload("res://scenes/levels/BossLevel.tscn"),
-	preload("res://scenes/levels/Cutscene3.tscn")]
+	preload("res://scenes/levels/Level2_5.tscn"),
+	
+	preload("res://scenes/levels/Level3_1_Title.tscn"),
+	preload("res://scenes/levels/Level3_2.tscn"),
+	preload("res://scenes/levels/Level3_3.tscn"),
+	preload("res://scenes/levels/Level3_4.tscn"),
+	preload("res://scenes/levels/Level3_5.tscn"),
+	
+	preload("res://scenes/levels/Level4_1_Title.tscn"),
+	preload("res://scenes/levels/Level4_2.tscn"),
+	preload("res://scenes/levels/Level4_3.tscn"),
+	preload("res://scenes/levels/Level4_4.tscn"),
+	preload("res://scenes/levels/Level4_5.tscn"),
+	
+	preload("res://scenes/levels/Level5_1_Title.tscn"),
+	preload("res://scenes/levels/Level5_2.tscn"),
+	preload("res://scenes/levels/Level5_3_Cutscene.tscn"),
+	preload("res://scenes/levels/Level5_4_Boss.tscn"),
+	preload("res://scenes/levels/Level5_5_Cutscene.tscn")
+]
 var level_index = 0
 var current_level: Level
 var old_level: Level
@@ -69,6 +85,7 @@ func despawn_level():
 
 func next_level():
 	if level_index >= levels.size():
+		get_tree().change_scene("res://scenes/Cutscenes.tscn")
 		return
 	if (level_index+1) % 5 == 0:
 		save()

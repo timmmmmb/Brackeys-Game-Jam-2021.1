@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scenes/entities/StandardEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/DefaultLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/levels/DefaultEnemyLevel.gd" type="Script" id=3]
-[ext_resource path="res://scenes/entities/MGEnemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/entities/ShotgunEnemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
@@ -11,12 +9,8 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 256, -256, 0, 0, 0, 0, 256, -160, 0, 0, 0, 0, -256, -160, 0, 0, 0, 0, -256, -256, 0, 0, 0, 0, 256, -256 )
 }
 
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -384, -256, 0, 0, 0, 0, -384, -64, 0, 0, 0, 0, -256, -64, 0, 0, 0, 0, -192, -64, 0, 0, 0, 0, -192, 0, 0, 0, 0, 0, -64, 0, 0, 0, 0, 0, -64, -64, 0, 0, 0, 0, 64, -64, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 192, 0, 0, 0, 0, 0, 192, -64, 0, 0, 0, 0, 384, -64, 0, 0, 0, 0, 384, -256, 0, 0, 0, 0, -384, -256 )
-}
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
+resource_name = "add"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Enemys:position")
 tracks/0/interp = 1
@@ -27,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -72 ), Vector2( 0, 56 ) ]
+"values": [ Vector2( 0, -72 ), Vector2( 0, 0 ) ]
 }
 
 [node name="Level" instance=ExtResource( 2 )]
@@ -36,73 +30,16 @@ script = ExtResource( 3 )
 [node name="Path2D" type="Path2D" parent="Paths" index="0"]
 curve = SubResource( 1 )
 
-[node name="Path2D2" type="Path2D" parent="Paths" index="1"]
-position = Vector2( 0, 96 )
-scale = Vector2( 1, 1.46094 )
-curve = SubResource( 2 )
-
 [node name="Enemys" parent="." index="1"]
 position = Vector2( 0, -72 )
 
-[node name="StandardEnemy" parent="Enemys" index="0" instance=ExtResource( 1 )]
-position = Vector2( -128, -256 )
-health = 2
-patrol_path = NodePath("../../Paths/Path2D")
-attack_delay = 1.0
-
-[node name="StandardEnemy2" parent="Enemys" index="1" instance=ExtResource( 1 )]
-position = Vector2( -64, -256 )
-health = 2
-patrol_path = NodePath("../../Paths/Path2D")
-attack_delay = 3.0
-
-[node name="StandardEnemy3" parent="Enemys" index="2" instance=ExtResource( 1 )]
-position = Vector2( 0, -256 )
-health = 2
-patrol_path = NodePath("../../Paths/Path2D")
-attack_delay = 5.0
-
-[node name="StandardEnemy4" parent="Enemys" index="3" instance=ExtResource( 1 )]
-position = Vector2( 128, -256 )
-health = 2
-patrol_path = NodePath("../../Paths/Path2D")
-attack_delay = 9.0
-
-[node name="StandardEnemy5" parent="Enemys" index="4" instance=ExtResource( 1 )]
-position = Vector2( 64, -253 )
-health = 2
-patrol_path = NodePath("../../Paths/Path2D")
-attack_delay = 7.0
-
-[node name="MGEnemy" parent="Enemys" index="5" instance=ExtResource( 4 )]
-position = Vector2( -96, -312 )
-health = 4
-speed = 30
-patrol_path = NodePath("../../Paths/Path2D2")
-attack_delay = 2.0
-
-[node name="MGEnemy2" parent="Enemys" index="6" instance=ExtResource( 4 )]
-position = Vector2( 96, -312 )
-health = 4
-speed = 30
-patrol_path = NodePath("../../Paths/Path2D2")
-attack_delay = 4.0
-
-[node name="ShotgunEnemy" parent="Enemys" index="7" instance=ExtResource( 5 )]
-position = Vector2( -32, -312 )
+[node name="ShotgunEnemy" parent="Enemys" index="0" instance=ExtResource( 5 )]
+position = Vector2( 0, -228 )
 health = 1
 speed = 60
 patrol_path = NodePath("../../Paths/Path2D")
-attack_delay = 6.0
-
-[node name="ShotgunEnemy2" parent="Enemys" index="8" instance=ExtResource( 5 )]
-position = Vector2( 32, -312 )
-health = 1
-speed = 60
-patrol_path = NodePath("../../Paths/Path2D2")
-attack_delay = 8.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-anims/add = SubResource( 3 )
+anims/add = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
