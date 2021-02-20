@@ -90,8 +90,9 @@ func _physics_process(_delta: float) -> void:
 		$AnimatedSprite.animation = "default"
 		
 	for friendly in friendlies:
-		friendly.get_node("AnimatedSprite").animation = \
-				$AnimatedSprite.animation
+		if friendly.get_node("AnimatedSprite").animation != "die":
+			friendly.get_node("AnimatedSprite").animation = \
+					$AnimatedSprite.animation
 	
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	velocity.y = clamp(velocity.y, -max_speed, max_speed)

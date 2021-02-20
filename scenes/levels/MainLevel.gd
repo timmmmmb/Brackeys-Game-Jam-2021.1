@@ -66,7 +66,7 @@ func despawn_level():
 func next_level():
 	if level_index >= levels.size():
 		return
-	if level_index+1 % 5 == 0:
+	if (level_index+1) % 5 == 0:
 		save()
 	load_level()
 	move_level()

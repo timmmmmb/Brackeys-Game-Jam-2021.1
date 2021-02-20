@@ -41,6 +41,8 @@ func shoot() -> void:
 
 
 func hit(damage) -> void:
+	if !picked_up:
+		return
 	health -= damage
 	if health <= 0:
 		destroy()
@@ -50,7 +52,6 @@ func destroy():
 	$CollisionShape2D.set_deferred("disabled", true)
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
-	$AnimatedSprite.frame = 0
 	yield($AnimatedSprite, "animation_finished" )
 	emit_signal("death")
 	queue_free()
