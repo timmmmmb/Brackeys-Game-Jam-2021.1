@@ -52,6 +52,7 @@ func _realign_friendlies() -> void:
 
 func _on_Friendly_death(friendly) -> void:
 	friendlies.remove(friendlies.find(friendly))
+	$Hit.play(0)
 	call_deferred("_realign_friendlies")
 
 
@@ -134,11 +135,13 @@ func hit(damage):
 	emit_signal("hit", health)
 	$AnimatedSprite.animation = "hit"
 	$AnimatedSprite.play()
+	$Hit.play(0)
 	if health <= 0:
 		destroy()
 
 
 func destroy():
+	$Death.play(0)
 	$CollisionShape2D.set_deferred("disabled", true)
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
