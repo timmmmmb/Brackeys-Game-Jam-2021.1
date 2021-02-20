@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/entities/StandardEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/levels/DefaultLevel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/DefaultEnemyLevel.gd" type="Script" id=3]
+[ext_resource path="res://scenes/entities/Asteroid.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 256, -256, 0, 0, 0, 0, 256, -160, 0, 0, 0, 0, -256, -160, 0, 0, 0, 0, -256, -256, 0, 0, 0, 0, 256, -256 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "add"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Enemys:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -72 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Level" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="Path2D" type="Path2D" parent="Paths" index="0"]
+curve = SubResource( 1 )
+
+[node name="Enemys" parent="." index="1"]
+position = Vector2( 0, -72 )
+
+[node name="StandardEnemy4" parent="Enemys" index="0" instance=ExtResource( 1 )]
+position = Vector2( 0, -232 )
+health = 2
+patrol_path = NodePath("../../Paths/Path2D")
+
+[node name="Asteroid" parent="CelestialBounds" index="0" instance=ExtResource( 4 )]
+position = Vector2( 0, -104 )
+
+[node name="Asteroid2" parent="CelestialBounds" index="1" instance=ExtResource( 4 )]
+position = Vector2( -104, -104 )
+
+[node name="Asteroid3" parent="CelestialBounds" index="2" instance=ExtResource( 4 )]
+position = Vector2( 96, -104 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+anims/add = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
