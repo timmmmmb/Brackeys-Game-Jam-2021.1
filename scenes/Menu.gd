@@ -11,4 +11,5 @@ func _process(_delta):
 		yield($Enter, "finished")
 		$AnimationPlayer.play("Start")
 		yield($AnimationPlayer, "animation_finished")
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://scenes/Cutscenes.tscn")

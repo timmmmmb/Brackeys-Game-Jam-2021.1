@@ -17,6 +17,7 @@ func _add_friendly(friendly: Node) -> void:
 	friendly.pick_uo()
 	friendly.get_parent().remove_child(friendly)
 	friendlies.append(friendly)
+# warning-ignore:return_value_discarded
 	friendly.connect("death", self, "_on_Friendly_death", [friendly])
 	add_child(friendly)
 	friendly.global_position = position
@@ -127,7 +128,7 @@ func hit(damage):
 
 
 func destroy():
-	$CollisionShape2D.call_deferred("disabled", true)
+	$CollisionShape2D.set_deferred("disabled", true)
 	$AnimatedSprite.animation = "die"
 	$AnimatedSprite.play()
 	yield($AnimatedSprite, "animation_finished" )
