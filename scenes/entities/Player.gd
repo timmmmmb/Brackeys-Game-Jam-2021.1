@@ -11,11 +11,14 @@ var paused = false
 
 var friendlies = []
 
-func _add_friendly(friendly: Friendly) -> void:
+func _add_friendly(friendly: Node) -> void:
+	var position = friendly.global_position
 	friendly.pick_uo()
 	friendly.get_parent().remove_child(friendly)
 	friendlies.append(friendly)
+	friendly.connect("death", self, "_on_Friendly_death", [friendly])
 	add_child(friendly)
+	friendly.global_position = position
 	_realign_friendlies()
 
 
@@ -31,10 +34,16 @@ func _realign_friendlies() -> void:
 	
 	for index in len(friendlies):
 		var friendly: KinematicBody2D = friendlies[index]
-		friendly.position = center
+		friendly.target_position = center
 		
-		friendly.position.x = left_most + index * friendly_distance
-		friendly.position.y = center.y - slope * abs(friendly.position.x)
+		friendly.target_position.x = left_most + index * friendly_distance
+		friendly.target_position.y = center.y - slope \
+				* abs(friendly.target_position.x)
+
+
+func _on_Friendly_death(friendly) -> void:
+	friendlies.remove(friendlies.find(friendly))
+	call_deferred("_realign_friendlies")
 
 
 func _physics_process(_delta: float) -> void:
@@ -68,10 +77,8 @@ func _physics_process(_delta: float) -> void:
 		
 	if left or right or up or down:
 		$AnimatedSprite.animation = "flying"
-		$AnimatedSpriteClone.animation = "flying"
 	else:
 		$AnimatedSprite.animation = "default"
-		$AnimatedSpriteClone.animation = "flying"
 		
 	for friendly in friendlies:
 		friendly.get_node("AnimatedSprite").animation = \
@@ -85,23 +92,20 @@ func _physics_process(_delta: float) -> void:
 	var viewport_size = get_viewport_rect().size \
 			/ get_canvas_transform().get_scale()
 	var half_viewport_size = viewport_size / 2
+	var half_width = $CollisionShape2D.shape.height / 2
 	var half_height = $CollisionShape2D.shape.height / 2 \
 			+ $CollisionShape2D.shape.radius
-	
+
+	position.x = clamp(position.x, -half_viewport_size.x + half_width,
+			half_viewport_size.x - half_width)
+
 	position.y = clamp(position.y, -half_viewport_size.y + half_height,
 			half_viewport_size.y - half_height)
-	
-	$AnimatedSpriteClone.global_position = position
 	
 	if position.x < -half_viewport_size.x:
 		position.x += viewport_size.x
 	elif position.x > half_viewport_size.x:
 		position.x -= viewport_size.x
-	
-	if position.x < 0:
-		$AnimatedSpriteClone.global_position.x += viewport_size.x
-	else:
-		$AnimatedSpriteClone.global_position.x -= viewport_size.x
 	
 	if is_shooting:
 		$StandardWeapon.shoot()
