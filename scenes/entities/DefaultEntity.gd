@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name DefaultEntity
+class_name Entity
 
 signal death
 
@@ -18,4 +18,5 @@ func hit(damage):
 		destroy()
 
 func destroy():
+	current_weapon.disable_shooting = true
 	emit_signal("death")

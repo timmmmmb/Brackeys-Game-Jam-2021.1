@@ -9,10 +9,9 @@ func _ready() -> void:
 	$BulletDelay.wait_time = bullet_delay
 	
 func shoot() -> void:
-	if !$Delay.is_stopped():
+	if !$Delay.is_stopped() || disable_shooting:
 		return
 	current_bullet = 0
-		
 	spawn_bullet()
 	$Delay.start(0)
 	$BulletDelay.start(0)

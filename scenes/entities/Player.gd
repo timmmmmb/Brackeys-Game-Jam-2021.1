@@ -1,4 +1,4 @@
-extends "res://scenes/entities/DefaultEntity.gd"
+extends Entity
 class_name Player
 signal hit(health)
 
@@ -11,10 +11,10 @@ var paused = false
 
 var friendlies = []
 
-func _add_friendly(friendly: Node) -> void:
+func _add_friendly(friendly: Friendly) -> void:
+	friendly.pick_uo()
 	friendly.get_parent().remove_child(friendly)
 	friendlies.append(friendly)
-	friendly.picked_up = true
 	add_child(friendly)
 	_realign_friendlies()
 

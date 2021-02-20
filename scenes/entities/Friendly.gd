@@ -1,7 +1,8 @@
-extends "res://scenes/entities/DefaultEntity.gd"
+extends Entity
+class_name Friendly
 
 export (NodePath) var weapon
-
+signal picked_up
 
 var initial_position: Vector2
 var floating_distance: int = 5
@@ -9,6 +10,10 @@ var floating_time: int = 2
 var time: float = 0
 
 var picked_up = false
+
+func pick_uo():
+	picked_up = true
+	emit_signal("picked_up")
 
 
 func _ready() -> void:

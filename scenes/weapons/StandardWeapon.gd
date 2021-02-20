@@ -1,16 +1,17 @@
 extends Node2D
-class_name StandardWeapon
+class_name Weapon
 
 export(PackedScene) var Projectile = preload("res://scenes/projectiles/Projectile.tscn")
 export(float) var delay = 1
 export var damage = 1
+var disable_shooting = false
 
 func _ready() -> void:
 	$Delay.wait_time = delay
 
 	
 func shoot() -> void:
-	if !$Delay.is_stopped():
+	if !$Delay.is_stopped() || disable_shooting:
 		return
 	spawn_bullet()
 	$Delay.start(0)

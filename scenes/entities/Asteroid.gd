@@ -1,4 +1,4 @@
-extends DefaultEntity
+extends Entity
 
 export(float) var rotation_speed
 export(int) var asteroid_type = 0
