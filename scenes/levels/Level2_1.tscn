@@ -11,12 +11,13 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 256, -256, 0, 0, 0, 0, 280, -151, 0, 0, 0, 0, 256, -31, 0, 0, 0, 0, 216, 9, 0, 0, 0, 0, 168, 41, 0, 0, 0, 0, 80, 57, 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, -72, 57, 0, 0, 0, 0, -144, 41, 0, 0, 0, 0, -216, 17, 0, 0, 0, 0, -256, -31, 0, 0, 0, 0, -280, -87, 0, 0, 0, 0, -280, -151, 0, 0, 0, 0, -280, -207, 0, 0, 0, 0, -256, -256, 0, 0, 0, 0, -208, -295, 0, 0, 0, 0, -168, -311, 0, 0, 0, 0, -120, -319, 0, 0, 0, 0, 0, -327, 0, 0, 0, 0, 120, -319, 0, 0, 0, 0, 168, -311, 0, 0, 0, 0, 216, -295, 0, 0, 0, 0, 256, -256 )
 }
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=3]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -192, 128, 0, 0, 0, 0, -192, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -128, 0, 0, 0, 0, 192, -128, 0, 0, 0, 0, 192, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 128, 64, 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 64, 128, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, -128, 64, 0, 0, 0, 0, -128, 128, 0, 0, 0, 0, -192, 128 )
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
+resource_name = "add"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Enemys:position")
 tracks/0/interp = 1
@@ -39,7 +40,7 @@ curve = SubResource( 1 )
 
 [node name="Path2D2" type="Path2D" parent="Paths" index="1"]
 position = Vector2( -19, -37 )
-curve = SubResource( 2 )
+curve = SubResource( 3 )
 
 [node name="Enemys" parent="." index="1"]
 position = Vector2( 0, -74 )
@@ -119,6 +120,6 @@ rotation_speed = 20.0
 asteroid_type = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
-anims/add = SubResource( 3 )
+anims/add = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]

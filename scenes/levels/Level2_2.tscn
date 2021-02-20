@@ -1,0 +1,157 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/entities/Asteroid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/levels/DefaultLevel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/levels/DefaultEnemyLevel.gd" type="Script" id=3]
+[ext_resource path="res://scenes/entities/ShotgunEnemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entities/StandardEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entities/MGEnemy.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 5.65685, -95.4594, -5.65685, 95.4594, -215.502, 1.33594, -139.3, 0.707107, 139.3, -0.707107, -0.541382, 121.544, 6.36396, 93.3381, -6.36396, -93.3381, 143.708, -2.90671, 165.463, 1.41421, -165.463, -1.41421, -0.541382, -118.165, 2.12132, -91.2168, -2.12132, 91.2168, -215.502, 1.33594 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 36.7807, 0.561231, -36.7807, -0.561231, -9.30636, -69.7856, 2.09459, -72.3988, -2.09459, 72.3988, -88.1429, -1.0773, -33.3932, 0, 33.3932, 0, -10.1022, 74.0077, -0.561231, 38.7249, 0.561231, -38.7249, 60.5833, -0.516083, 55.5619, 0, -55.5619, 0, -9.30636, -69.7856 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 33.6359, -7.56807, -33.6359, 7.56807, -68.0112, -246.089, 20.1815, -19.3406, -20.1815, 19.3406, -80.6247, -183.863, 26.9087, -25.2269, -26.9087, 25.2269, -162.192, -128.363, -6.72717, -53.8174, 6.72717, 53.8174, -199.191, 17.9525, -82.4079, -5.88627, 82.4079, 5.88627, -20.0801, 99.5195, -17.6588, 84.0896, 17.6588, -84.0896, 137.167, 22.9979, 10.0908, 32.795, -10.0908, -32.795, 72.4185, -145.181, -2.52269, 27.7496, 2.52269, -27.7496, 82.5092, -206.567, 31.1132, 1.68179, -31.1132, -1.68179, 53.9188, -260.384, 38.6812, -45.4084, -38.6812, 45.4084, -68.0112, -246.089 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -256, -256, 0, 0, 0, 0, -64, -256, 0, 0, 0, 0, -64, -128, 0, 0, 0, 0, -256, -128, 0, 0, 0, 0, -256, -256 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 64, -256, 0, 0, 0, 0, 192, -256 )
+}
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Enemys:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -72 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Level" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="Orbit2" type="Path2D" parent="Paths" index="0"]
+curve = SubResource( 2 )
+
+[node name="Orbit1" type="Path2D" parent="Paths" index="1"]
+scale = Vector2( 1.0566, 1 )
+curve = SubResource( 4 )
+
+[node name="EnemyPath" type="Path2D" parent="Paths" index="2"]
+curve = SubResource( 5 )
+
+[node name="Left" type="Path2D" parent="Paths" index="3"]
+curve = SubResource( 6 )
+
+[node name="Right" type="Path2D" parent="Paths" index="4"]
+curve = SubResource( 7 )
+
+[node name="Enemys" parent="." index="1"]
+position = Vector2( 0, -74 )
+
+[node name="ShotgunEnemy2" parent="Enemys" index="0" instance=ExtResource( 4 )]
+position = Vector2( 137.468, -230 )
+health = 1
+speed = 60
+patrol_path = NodePath("../../Paths/Right")
+attack_delay = 0.5
+
+[node name="StandardEnemy" parent="Enemys" index="1" instance=ExtResource( 5 )]
+position = Vector2( 0, -238 )
+health = 2
+patrol_path = NodePath("../../Paths/EnemyPath")
+
+[node name="MGEnemy" parent="Enemys" index="2" instance=ExtResource( 6 )]
+position = Vector2( -104, -246 )
+health = 4
+speed = 30
+patrol_path = NodePath("../../Paths/Left")
+attack_delay = 2.0
+
+[node name="Asteroid3" parent="CelestialBounds" index="0" instance=ExtResource( 1 )]
+position = Vector2( -36.2843, -170.523 )
+speed = 70
+rotation_speed = 20.0
+patrol_path = NodePath("../../Paths/Orbit1")
+
+[node name="Asteroid4" parent="CelestialBounds" index="1" instance=ExtResource( 1 )]
+position = Vector2( 233.456, 95.5706 )
+speed = 70
+rotation_speed = 20.0
+asteroid_type = 5
+
+[node name="Asteroid5" parent="CelestialBounds" index="2" instance=ExtResource( 1 )]
+position = Vector2( 150.849, -205.31 )
+speed = 70
+rotation_speed = 20.0
+asteroid_type = 6
+
+[node name="Asteroid" parent="CelestialBounds" index="3" instance=ExtResource( 1 )]
+position = Vector2( -261.823, 101.047 )
+speed = 70
+rotation_speed = 20.0
+asteroid_type = 1
+
+[node name="Asteroid2" parent="CelestialBounds" index="4" instance=ExtResource( 1 )]
+position = Vector2( -1.69135, 1.30362 )
+scale = Vector2( 0.75, 0.75 )
+speed = 70
+rotation_speed = 20.0
+asteroid_type = 4
+
+[node name="Asteroid9" parent="CelestialBounds" index="5" instance=ExtResource( 1 )]
+position = Vector2( -216.18, -99.1888 )
+speed = 70
+rotation_speed = 20.0
+asteroid_type = 1
+patrol_path = NodePath("../../Paths/Orbit2")
+
+[node name="Asteroid10" parent="CelestialBounds" index="6" instance=ExtResource( 1 )]
+position = Vector2( -154.745, -181.858 )
+speed = 70
+rotation_speed = 20.0
+asteroid_type = 4
+patrol_path = NodePath("../../Paths/Orbit2")
+
+[node name="Asteroid6" parent="CelestialBounds" index="7" instance=ExtResource( 1 )]
+position = Vector2( 214.045, -34.2944 )
+speed = 70
+rotation_speed = 20.0
+
+[node name="Asteroid7" parent="CelestialBounds" index="8" instance=ExtResource( 1 )]
+position = Vector2( 37.5599, -139.106 )
+speed = 70
+rotation_speed = 20.0
+asteroid_type = 3
+patrol_path = NodePath("../../Paths/Orbit2")
+
+[node name="Asteroid8" parent="CelestialBounds" index="9" instance=ExtResource( 1 )]
+position = Vector2( 114.468, -148.804 )
+speed = 70
+rotation_speed = 20.0
+asteroid_type = 2
+patrol_path = NodePath("../../Paths/Orbit2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+anims/add = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
