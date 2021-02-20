@@ -72,6 +72,7 @@ func next_level():
 	move_level()
 	despawn_level()
 
+
 func game_over():
 	$GameOver.visible = true
 

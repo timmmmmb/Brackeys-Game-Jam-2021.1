@@ -7,5 +7,5 @@ export (PowerupType) var type = PowerupType.SHOOT_FAST
 export (int) var duration = 5
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Sprite.frame = type

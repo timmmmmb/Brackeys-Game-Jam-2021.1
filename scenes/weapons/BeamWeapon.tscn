@@ -12,3 +12,4 @@ wait_time = 0.1
 one_shot = true
 
 [node name="Beam" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 1, 3 )
