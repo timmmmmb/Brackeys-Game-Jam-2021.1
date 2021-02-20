@@ -1,4 +1,4 @@
-extends DefaultEntity
+extends Entity
 
 enum STATE {IDLE, MOVING, ORBITING}
 var state = STATE.IDLE

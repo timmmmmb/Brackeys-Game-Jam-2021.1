@@ -1,7 +1,8 @@
-extends "res://scenes/entities/DefaultEntity.gd"
+extends Entity
+class_name Friendly
 
 export (NodePath) var weapon
-
+signal picked_up
 
 var initial_position: Vector2
 var floating_distance: int = 5
@@ -11,6 +12,9 @@ var target_position: Vector2
 
 var picked_up = false
 
+func pick_uo():
+	picked_up = true
+	emit_signal("picked_up")
 
 
 func _ready() -> void:
@@ -43,5 +47,11 @@ func hit(damage) -> void:
 		destroy()
 
 
-func destroy() -> void:
+func destroy():
+	$CollisionShape2D.call_deferred("disabled", true)
+	$AnimatedSprite.animation = "die"
+	$AnimatedSprite.play()
+	$AnimatedSprite.frame = 0
+	yield($AnimatedSprite, "animation_finished" )
+	emit_signal("death")
 	queue_free()

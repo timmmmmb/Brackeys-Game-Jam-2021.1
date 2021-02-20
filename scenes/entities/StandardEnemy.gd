@@ -1,4 +1,4 @@
-extends "res://scenes/entities/DefaultEntity.gd"
+extends Entity
 class_name Enemy
 
 enum STATE {IDLE, MOVING, ATTACKING, DEAD}
@@ -39,7 +39,7 @@ func _physics_process(_delta):
 
 
 func hit(damage):
-	if $AnimatedSprite.animation == "hit":
+	if $AnimatedSprite.animation == "die":
 		return
 	health -= damage
 	if health <= 0:
@@ -51,7 +51,8 @@ func hit(damage):
 
 func destroy():
 	$AnimatedSprite.animation = "die"
-	$CollisionShape2D.call_deferred("disabled", true)
+	current_weapon.disable_shooting = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	state = STATE.DEAD
 	$AttackDelay.stop()
 	$AnimatedSprite.play()

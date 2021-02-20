@@ -3,17 +3,6 @@ extends "res://scenes/weapons/StandardWeapon.gd"
 export var bullet_amount = 5
 export var spread = 30
 
-func _ready() -> void:
-	$Delay.wait_time = delay
-
-
-func shoot() -> void:
-	if !$Delay.is_stopped():
-		return
-		
-	spawn_bullet()
-	$Delay.start(0)
-
 
 func spawn_bullet() -> void:
 	$Sound.play(0)

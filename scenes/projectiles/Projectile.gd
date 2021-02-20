@@ -16,7 +16,7 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 
 
 func _on_Projectile_body_entered(body: Node) -> void:
-	if body is DefaultEntity:
+	if body is Entity:
 		body.hit(1)
 		$AnimatedSprite.animation = "hit"
 		$CollisionShape2D.set_deferred("disabled", true)

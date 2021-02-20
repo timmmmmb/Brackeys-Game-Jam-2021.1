@@ -1,4 +1,4 @@
-extends "res://scenes/entities/DefaultEntity.gd"
+extends Entity
 class_name Player
 signal hit(health)
 
@@ -11,11 +11,13 @@ var paused = false
 
 var friendlies = []
 
+
 func _add_friendly(friendly: Node) -> void:
 	var position = friendly.global_position
+	friendly.pick_uo()
 	friendly.get_parent().remove_child(friendly)
 	friendlies.append(friendly)
-	friendly.picked_up = true
+	friendly.connect("death", self, "_on_Friendly_death", [friendly])
 	add_child(friendly)
 	friendly.global_position = position
 	_realign_friendlies()
@@ -38,6 +40,11 @@ func _realign_friendlies() -> void:
 		friendly.target_position.x = left_most + index * friendly_distance
 		friendly.target_position.y = center.y - slope \
 				* abs(friendly.target_position.x)
+
+
+func _on_Friendly_death(friendly) -> void:
+	friendlies.remove(friendlies.find(friendly))
+	call_deferred("_realign_friendlies")
 
 
 func _physics_process(_delta: float) -> void:

@@ -14,12 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/levels/Cutscene.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "DefaultEntity",
-"language": "GDScript",
-"path": "res://scenes/entities/DefaultEntity.gd"
-}, {
-"base": "KinematicBody2D",
+"base": "Entity",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://scenes/entities/StandardEnemy.gd"
@@ -29,12 +24,22 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/levels/DefaultEnemyLevel.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://scenes/entities/DefaultEntity.gd"
+}, {
+"base": "Entity",
+"class": "Friendly",
+"language": "GDScript",
+"path": "res://scenes/entities/Friendly.gd"
+}, {
 "base": "Node2D",
 "class": "Level",
 "language": "GDScript",
 "path": "res://scenes/levels/DefaultLevel.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Entity",
 "class": "Player",
 "language": "GDScript",
 "path": "res://scenes/entities/Player.gd"
@@ -50,20 +55,21 @@ _global_script_classes=[ {
 "path": "res://scenes/projectiles/Rocket.gd"
 }, {
 "base": "Node2D",
-"class": "StandardWeapon",
+"class": "Weapon",
 "language": "GDScript",
 "path": "res://scenes/weapons/StandardWeapon.gd"
 } ]
 _global_script_class_icons={
 "Cutscene": "",
-"DefaultEntity": "",
 "Enemy": "",
 "EnemyLevel": "",
+"Entity": "",
+"Friendly": "",
 "Level": "",
 "Player": "",
 "Projectile": "",
 "Rocket": "",
-"StandardWeapon": ""
+"Weapon": ""
 }
 
 [application]
