@@ -16,7 +16,6 @@ func pick_uo():
 	picked_up = true
 	emit_signal("picked_up")
 
-
 func _ready() -> void:
 	current_weapon = get_node(weapon)
 	initial_position = position

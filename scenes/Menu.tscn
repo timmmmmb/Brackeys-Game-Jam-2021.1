@@ -60,156 +60,156 @@ tracks/1/keys = {
 [sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 0, 96, 48, 48 )
+region = Rect2( 0, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 48, 96, 48, 48 )
+region = Rect2( 48, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 96, 96, 48, 48 )
+region = Rect2( 96, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 144, 96, 48, 48 )
+region = Rect2( 144, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 48, 48 )
+region = Rect2( 0, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 48, 0, 48, 48 )
+region = Rect2( 48, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 96, 0, 48, 48 )
+region = Rect2( 96, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 144, 0, 48, 48 )
+region = Rect2( 144, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 0, 48, 48, 48 )
+region = Rect2( 0, 96, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 48, 48, 48, 48 )
+region = Rect2( 48, 96, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 96, 48, 48, 48 )
+region = Rect2( 96, 96, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 144, 48, 48, 48 )
+region = Rect2( 144, 96, 48, 48 )
 
 [sub_resource type="SpriteFrames" id=16]
 animations = [ {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
-"name": "star3",
+"name": "star1",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
-"name": "star1",
+"name": "star2",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
-"name": "star2",
+"name": "star3",
 "speed": 5.0
 } ]
 
 [sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 0, 96, 48, 48 )
+region = Rect2( 0, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 48, 96, 48, 48 )
+region = Rect2( 48, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 96, 96, 48, 48 )
+region = Rect2( 96, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 144, 96, 48, 48 )
+region = Rect2( 144, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=21]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 48, 48 )
+region = Rect2( 0, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=22]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 48, 0, 48, 48 )
+region = Rect2( 48, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=23]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 96, 0, 48, 48 )
+region = Rect2( 96, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=24]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 144, 0, 48, 48 )
+region = Rect2( 144, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 0, 48, 48, 48 )
+region = Rect2( 0, 96, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 48, 48, 48, 48 )
+region = Rect2( 48, 96, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 96, 48, 48, 48 )
+region = Rect2( 96, 96, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 4 )
-region = Rect2( 144, 48, 48, 48 )
+region = Rect2( 144, 96, 48, 48 )
 
 [sub_resource type="SpriteFrames" id=29]
 animations = [ {
 "frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
-"name": "star3",
+"name": "star1",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
 "loop": true,
-"name": "star1",
+"name": "star2",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
-"name": "star2",
+"name": "star3",
 "speed": 5.0
 } ]
 
@@ -788,96 +788,112 @@ position = Vector2( 323.264, -917.137 )
 rotation = 2.09638
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star77" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 187.093, -788.531 )
 rotation = 2.09638
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star76" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( -92.274, -792.313 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star75" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( -243.035, -889.038 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star74" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 7.69281, -871.746 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star73" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( -208.451, -658.844 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star72" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 403.237, -652.36 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star71" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 2.28912, -656.683 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star70" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 46.0584, -709.098 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star69" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 363.251, -813.928 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star68" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 316.239, -641.553 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star67" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 316.239, -641.553 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star66" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 239.635, -476.737 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star65" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( -116.274, -521.616 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star64" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 16.8166, -525.485 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star63" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( -479.952, -513.105 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star124" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( -306.906, -1253.83 )
@@ -974,93 +990,109 @@ position = Vector2( 443.264, -1237.14 )
 rotation = 2.09638
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star108" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 307.093, -1108.53 )
 rotation = 2.09638
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star107" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 27.726, -1112.31 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star106" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( -123.035, -1209.04 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star105" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 127.693, -1191.75 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star104" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( -88.4513, -978.844 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star103" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 523.237, -972.36 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star102" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 122.289, -976.683 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star2"
+frame = 0
 
 [node name="Star101" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 166.058, -1029.1 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star100" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 483.251, -1133.93 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star99" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 436.239, -961.553 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star98" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 436.239, -961.553 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star97" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 359.635, -796.737 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star96" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 3.72598, -841.616 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star95" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( 136.817, -845.485 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0
 
 [node name="Star94" parent="Stars" instance=ExtResource( 9 )]
 position = Vector2( -359.952, -833.105 )
 rotation = 1.57279
 frames = SubResource( 29 )
 animation = "star3"
+frame = 0

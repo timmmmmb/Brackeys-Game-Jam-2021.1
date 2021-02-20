@@ -2,6 +2,8 @@ extends Entity
 class_name Player
 signal hit(health)
 
+enum PowerupType { SHOOT_FAST, MULTISHOT, SLOW_ENEMIES } # Also in Powerup
+
 export (int) var acceleration = 50
 export (int) var max_speed = 300
 export (float) var inertia = 0.9
@@ -9,6 +11,7 @@ export (int) var friendly_distance = 15
 export (int) var friendly_amount = 0
 var paused = false
 export(PackedScene) var FriendlyScene = preload("res://scenes/entities/Friendly.tscn")
+var powerup = null
 
 var friendlies = []
 
@@ -114,9 +117,12 @@ func _physics_process(_delta: float) -> void:
 		position.x -= viewport_size.x
 	
 	if is_shooting:
-		$StandardWeapon.shoot()
-#		$ShotgunWeapon.shoot()
-#		$MGWeapon.shoot()
+		if powerup == null:
+			$StandardWeapon.shoot()
+		elif powerup == PowerupType.MULTISHOT:
+			$ShotgunWeapon.shoot()
+		elif powerup == PowerupType.SHOOT_FAST:
+			$MGWeapon.shoot()
 		
 		for friendly in friendlies:
 			friendly.shoot()
@@ -144,7 +150,17 @@ func set_paused(_paused):
 	self.paused = _paused
 
 
-func _on_Area2D_body_shape_entered(_body_id: int, body: Node, _body_shape: int, 
-		_area_shape: int) -> void:
+func _on_Area2D_body_entered(body: Node) -> void:
 	if body.is_in_group("friendly") and not body.picked_up:
 		call_deferred("_add_friendly", body)
+
+
+func _on_Area2D_area_entered(area: Area2D) -> void:
+	if area.is_in_group("powerup"):
+		area.queue_free()
+		$PowerupTimer.start(area.duration)
+		powerup = area.type
+		
+
+func _on_PowerupTimer_timeout() -> void:
+	self.powerup = null
