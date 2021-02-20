@@ -11,6 +11,13 @@ var paused = false
 
 var friendlies = []
 
+func _add_friendly(friendly: Node) -> void:
+	friendly.get_parent().remove_child(friendly)
+	friendlies.append(friendly)
+	friendly.picked_up = true
+	add_child(friendly)
+	_realign_friendlies()
+
 
 func _realign_friendlies() -> void:
 	var center = $CenterFriendlyLocation.position
@@ -28,18 +35,6 @@ func _realign_friendlies() -> void:
 		
 		friendly.position.x = left_most + index * friendly_distance
 		friendly.position.y = center.y - slope * abs(friendly.position.x)
-
-
-func _ready() -> void:
-	var Friendly = preload("res://scenes/entities/Friendly.tscn")
-	
-	for i in friendly_amount:
-		var friendly = Friendly.instance()
-		friendlies.append(friendly)
-		add_child(friendly)
-	
-	_realign_friendlies()
-
 
 
 func _physics_process(_delta: float) -> void:
@@ -77,6 +72,10 @@ func _physics_process(_delta: float) -> void:
 	else:
 		$AnimatedSprite.animation = "default"
 		$AnimatedSpriteClone.animation = "flying"
+		
+	for friendly in friendlies:
+		friendly.get_node("AnimatedSprite").animation = \
+				$AnimatedSprite.animation
 	
 	velocity.x = clamp(velocity.x, -max_speed, max_speed)
 	velocity.y = clamp(velocity.y, -max_speed, max_speed)
@@ -121,6 +120,7 @@ func hit(damage):
 	if health <= 0:
 		destroy()
 
+
 func destroy():
 	$CollisionShape2D.call_deferred("disabled", true)
 	$AnimatedSprite.animation = "die"
@@ -128,7 +128,13 @@ func destroy():
 	yield($AnimatedSprite, "animation_finished" )
 	emit_signal("death")
 	queue_free()
-	
+
+
 func set_paused(_paused):
 	self.paused = _paused
-	
+
+
+func _on_Area2D_body_shape_entered(_body_id: int, body: Node, _body_shape: int, 
+		_area_shape: int) -> void:
+	if body.is_in_group("friendly") and not body.picked_up:
+		call_deferred("_add_friendly", body)

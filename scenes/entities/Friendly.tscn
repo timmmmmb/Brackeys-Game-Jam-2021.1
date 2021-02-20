@@ -37,8 +37,9 @@ animations = [ {
 radius = 5.42684
 height = 9.00526
 
-[node name="Friendly" type="KinematicBody2D"]
-collision_layer = 16
+[node name="Friendly" type="KinematicBody2D" groups=[
+"friendly",
+]]
 collision_mask = 0
 script = ExtResource( 1 )
 weapon = NodePath("StandardWeapon")
@@ -50,6 +51,8 @@ delay = 0.5
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.5, 0 )
 frames = SubResource( 5 )
+animation = "flying"
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

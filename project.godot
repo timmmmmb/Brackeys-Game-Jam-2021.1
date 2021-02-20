@@ -113,6 +113,13 @@ restart={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="friendlies"
+2d_physics/layer_2="enemies"
+2d_physics/layer_3="asteroids"
+2d_physics/layer_4="projectiles"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
