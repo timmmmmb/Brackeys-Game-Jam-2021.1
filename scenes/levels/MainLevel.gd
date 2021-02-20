@@ -20,8 +20,10 @@ var levels = [
 var level_index = 0
 var current_level: Level
 var old_level: Level
-export(PackedScene) var Player = preload("res://scenes/entities/Player.tscn")
+export(PackedScene) var PlayerScene = preload("res://scenes/entities/Player.tscn")
 var player: Player
+var friendly_amount = 0
+var save_level = 0
 
 
 func _ready() -> void:
@@ -64,6 +66,8 @@ func despawn_level():
 func next_level():
 	if level_index >= levels.size():
 		return
+	if level_index+1 % 5 == 0:
+		save()
 	load_level()
 	move_level()
 	despawn_level()
@@ -73,9 +77,11 @@ func game_over():
 
 
 func restart():
-	level_index = 0
-	player = Player.instance()
+	level_index = save_level
+	player = PlayerScene.instance()
 	get_tree().root.get_child(0).add_child(player)
+	for i in range(friendly_amount):
+		player._add_new_friendly()
 	$GameOver.visible = false
 	$LifeBar.hearts = 3
 	var bullets = get_children()
@@ -89,4 +95,6 @@ func restart():
 	move_level()
 
 
-
+func save():
+	friendly_amount = player.friendly_amount
+	save_level = level_index

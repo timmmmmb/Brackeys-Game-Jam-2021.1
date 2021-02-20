@@ -8,6 +8,7 @@ export (float) var inertia = 0.9
 export (int) var friendly_distance = 15
 export (int) var friendly_amount = 0
 var paused = false
+export(PackedScene) var FriendlyScene = preload("res://scenes/entities/Friendly.tscn")
 
 var friendlies = []
 
@@ -23,6 +24,9 @@ func _add_friendly(friendly: Node) -> void:
 	friendly.global_position = position
 	_realign_friendlies()
 
+func _add_new_friendly() -> void:
+	var friendly = FriendlyScene.instance()
+	_add_friendly(friendly)
 
 func _realign_friendlies() -> void:
 	var center = $CenterFriendlyLocation.position
