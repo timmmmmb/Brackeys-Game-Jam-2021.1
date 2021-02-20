@@ -29,6 +29,8 @@ func hit(damage):
 		return
 	health -= damage
 	if health <= 0:
+		$"healthbar-boss-container".visible = false
+		$"healthbar-boss-health".visible = false
 		destroy()
 	else:
 		var current_stage = stage
@@ -51,6 +53,8 @@ func hit(damage):
 				$AttackDelay.start(0)
 		if $AnimatedSprite.animation == "opengate" && $AnimatedSprite.frame < 5:
 			spawn_frame = $AnimatedSprite.frame
+		
+		$"healthbar-boss-health".frame = health / 8
 		$AnimatedSprite.animation = "hit"
 		$AnimatedSprite.play()
 		print(health)
@@ -94,5 +98,4 @@ func _on_AnimatedSprite_frame_changed() -> void:
 		drone.global_position = global_position
 		drone.rotation = global_rotation
 		get_tree().root.get_child(0).add_child(drone)
-		drone.patrol_path = $Path2D.get_path()
 		drone.wake_up()
