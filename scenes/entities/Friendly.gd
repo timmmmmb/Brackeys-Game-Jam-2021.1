@@ -2,7 +2,6 @@ extends "res://scenes/entities/DefaultEntity.gd"
 
 export (NodePath) var weapon
 
-
 var initial_position: Vector2
 var floating_distance: int = 5
 var floating_time: int = 2
@@ -43,5 +42,11 @@ func hit(damage) -> void:
 		destroy()
 
 
-func destroy() -> void:
+func destroy():
+	$CollisionShape2D.call_deferred("disabled", true)
+	$AnimatedSprite.animation = "die"
+	$AnimatedSprite.play()
+	$AnimatedSprite.frame = 0
+	yield($AnimatedSprite, "animation_finished" )
+	emit_signal("death")
 	queue_free()
