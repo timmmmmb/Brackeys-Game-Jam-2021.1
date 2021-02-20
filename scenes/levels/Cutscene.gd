@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if Input.is_action_pressed("ui_accept") && $PressDelay.is_stopped():
+	if Input.is_action_pressed("ui_accept") && $PressDelay.is_stopped() :
 		next_screen()
 		$PressDelay.start(0)
 

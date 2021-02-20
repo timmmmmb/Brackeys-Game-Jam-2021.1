@@ -25,7 +25,7 @@ func behaviour():
 		state = STATE.MOVING
 
 func hit(damage):
-	if $AnimatedSprite.animation == "die":
+	if state == STATE.DEAD || state == STATE.IDLE:
 		return
 	health -= damage
 	if health <= 0:

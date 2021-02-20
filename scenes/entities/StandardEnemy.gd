@@ -42,7 +42,7 @@ func _physics_process(_delta):
 
 
 func hit(damage):
-	if $AnimatedSprite.animation == "die":
+	if state == STATE.DEAD || state == STATE.IDLE:
 		return
 	health -= damage
 	if health <= 0:

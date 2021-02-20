@@ -158,7 +158,7 @@ position = Vector2( 0, -17.3362 )
 
 [node name="StandardWeapon" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -17.3362 )
-delay = 0.2
+delay = 0.4
 
 [node name="LeftFriendlyLocation" type="Node2D" parent="."]
 position = Vector2( -48, 0 )

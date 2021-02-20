@@ -201,12 +201,14 @@ wait_time = 8.0
 [node name="RocketTimer" type="Timer" parent="."]
 
 [node name="healthbar-boss-container" type="Sprite" parent="."]
-position = Vector2( -5.33334, -39.6667 )
+position = Vector2( -5.33333, -31 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
-vframes = 10
+vframes = 11
 
 [node name="healthbar-boss-health" type="Sprite" parent="."]
-position = Vector2( -5.33333, -42.3333 )
+position = Vector2( -5.33333, -30.6667 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 11 )
 vframes = 11
 frame = 10
