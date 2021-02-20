@@ -12,10 +12,12 @@ var paused = false
 var friendlies = []
 
 func _add_friendly(friendly: Node) -> void:
+	var position = friendly.global_position
 	friendly.get_parent().remove_child(friendly)
 	friendlies.append(friendly)
 	friendly.picked_up = true
 	add_child(friendly)
+	friendly.global_position = position
 	_realign_friendlies()
 
 
@@ -31,10 +33,11 @@ func _realign_friendlies() -> void:
 	
 	for index in len(friendlies):
 		var friendly: KinematicBody2D = friendlies[index]
-		friendly.position = center
+		friendly.target_position = center
 		
-		friendly.position.x = left_most + index * friendly_distance
-		friendly.position.y = center.y - slope * abs(friendly.position.x)
+		friendly.target_position.x = left_most + index * friendly_distance
+		friendly.target_position.y = center.y - slope \
+				* abs(friendly.target_position.x)
 
 
 func _physics_process(_delta: float) -> void:
