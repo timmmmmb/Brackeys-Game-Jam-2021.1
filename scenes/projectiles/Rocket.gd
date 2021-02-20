@@ -3,10 +3,11 @@ class_name Rocket
 
 var target
 
-func _physics_process(_delta: float) -> void:
+func move():
 	if $AnimatedSprite.animation != "hit":
 		if target:
-			position += position.direction_to(target.position) * speed
+			look_at(target.global_position)
+			position += global_position.direction_to(target.global_position) * speed
 		else:
 			position += Vector2.UP.rotated(rotation) * speed
 

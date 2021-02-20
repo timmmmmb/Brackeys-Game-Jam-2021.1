@@ -23,29 +23,29 @@ region = Rect2( 96, 0, 48, 48 )
 atlas = ExtResource( 1 )
 region = Rect2( 144, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 96, 0, 48, 48 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": false,
 "name": "default",
 "speed": 12.0
 }, {
-"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": false,
 "name": "hit",
 "speed": 12.0
@@ -66,6 +66,6 @@ scale = Vector2( 1.7, 1.7 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -14 )
-frames = SubResource( 18 )
+frames = SubResource( 9 )
 [connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

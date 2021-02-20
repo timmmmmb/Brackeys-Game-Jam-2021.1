@@ -5,6 +5,7 @@
 
 [node name="RocketWeapon" type="Node2D"]
 script = ExtResource( 1 )
+delay = 2.5
 
 [node name="Delay" type="Timer" parent="."]
 one_shot = true

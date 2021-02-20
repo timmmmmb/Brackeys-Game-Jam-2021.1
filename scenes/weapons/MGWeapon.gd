@@ -18,7 +18,7 @@ func shoot() -> void:
 
 
 func _on_BulletDelay_timeout() -> void:
-	if current_bullet >= bullet_amount-1:
+	if current_bullet >= bullet_amount-1 || disable_shooting:
 		return
 	spawn_bullet()
 	$BulletDelay.start(0)

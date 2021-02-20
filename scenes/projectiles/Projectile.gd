@@ -6,10 +6,13 @@ func _ready() -> void:
 	$AnimatedSprite.play()
 
 
-func _physics_process(_delta: float) -> void:
+func move():
 	if $AnimatedSprite.animation != "hit":
 		position += Vector2.UP.rotated(rotation) * speed
+	
 
+func _physics_process(_delta):
+	move()
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	queue_free()
