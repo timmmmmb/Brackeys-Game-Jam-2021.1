@@ -61,6 +61,8 @@ func destroy():
 	state = STATE.DEAD
 	$AttackDelay.stop()
 	$AnimatedSprite.play()
+	$BeamWeapon/Beam/AnimatedSprite.visible = false
+	$BeamWeapon/Beam/AnimatedSprite.stop()
 
 
 func _on_AttackDelay_timeout() -> void:

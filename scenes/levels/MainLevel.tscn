@@ -170,7 +170,7 @@ animations = [ {
 script = ExtResource( 9 )
 
 [node name="planet-horizon-(TALL)" type="Sprite" parent="."]
-position = Vector2( 0, -260.633 )
+position = Vector2( 0, -264 )
 scale = Vector2( 2.2, 2.2 )
 texture = ExtResource( 2 )
 

@@ -112,6 +112,8 @@ func restart():
 	for child in bullets: 
 		if child is Projectile:
 			child.queue_free()
+		elif child is Enemy:
+			child.queue_free()
 	load_level()
 	despawn_level()
 	move_level()
