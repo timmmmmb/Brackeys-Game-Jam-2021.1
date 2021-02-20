@@ -16,88 +16,76 @@ atlas = ExtResource( 1 )
 region = Rect2( 0, 48, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 144, 48, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 48, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 6 )
 region = Rect2( 48, 48, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 6 )
 region = Rect2( 96, 48, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 5 )
 region = Rect2( 48, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 5 )
 region = Rect2( 96, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 5 )
 region = Rect2( 144, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 5 )
 region = Rect2( 192, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
 region = Rect2( 240, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 5 )
 region = Rect2( 288, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 5 )
 region = Rect2( 336, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 5 )
 region = Rect2( 384, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 5 )
 region = Rect2( 432, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 5 )
 region = Rect2( 480, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 5 )
 region = Rect2( 528, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 48, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 1 )
-region = Rect2( 96, 48, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 1 )
-region = Rect2( 144, 48, 48, 48 )
 
 [sub_resource type="SpriteFrames" id=21]
 animations = [ {
@@ -106,20 +94,20 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 3 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "flying",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 6 ) ],
 "loop": false,
 "name": "hit",
 "speed": 12.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": false,
 "name": "die",
 "speed": 12.0
-}, {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
-"loop": true,
-"name": "flying",
-"speed": 5.0
 } ]
 
 [node name="ShotgunEnemy" type="KinematicBody2D"]
@@ -129,6 +117,9 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
+health = 2
+speed = 60
+attack_delay = 2.0
 weapon = NodePath("ShotgunWeapon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
