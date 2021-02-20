@@ -14,6 +14,7 @@ var levels = [
 	preload("res://scenes/levels/Level1_3.tscn"),
 	preload("res://scenes/levels/Level1_4.tscn"),
 	preload("res://scenes/levels/Cutscene1.tscn"),
+	preload("res://scenes/levels/Level2_1.tscn"),
 	preload("res://scenes/levels/Cutscene2.tscn"),
 	preload("res://scenes/levels/Cutscene3.tscn")]
 var level_index = 0
