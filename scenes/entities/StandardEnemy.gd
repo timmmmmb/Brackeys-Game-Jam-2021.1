@@ -12,17 +12,17 @@ export (NodePath) var weapon
 func _ready():
 	$AttackDelay.wait_time = attack_delay
 	current_weapon = get_node(weapon)
-	if patrol_path:
-		patrol_points = get_node(patrol_path).curve.get_baked_points()
 
 func wake_up():
 	state = STATE.MOVING
 	$AttackDelay.start(0)
 	$AnimatedSprite.animation = "flying"
 	$AnimatedSprite.play()
+	if patrol_path:
+		patrol_points = get_node(patrol_path).curve.get_baked_points()
 
 
-func _physics_process(_delta):
+func behaviour():
 	if state == STATE.DEAD:
 		return
 	if patrol_path && state != STATE.IDLE:
@@ -36,6 +36,9 @@ func _physics_process(_delta):
 		shoot()
 		$AttackDelay.start(0)
 		state = STATE.MOVING
+
+func _physics_process(_delta):
+	behaviour()
 
 
 func hit(damage):

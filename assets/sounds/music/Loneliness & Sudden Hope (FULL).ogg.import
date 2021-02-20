@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Loneliness & Sudden Hope (FULL).ogg-6bf021e32bcbc297f1fb20bcb2582dae.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/music/Loneliness & Sudden Hope (FULL).ogg"
+dest_files=[ "res://.import/Loneliness & Sudden Hope (FULL).ogg-6bf021e32bcbc297f1fb20bcb2582dae.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
